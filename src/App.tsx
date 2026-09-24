@@ -923,11 +923,6 @@ export function App() {
                   navigate("products");
                 }}
               >
-                <div className="cat-card-header">
-                  <span className="cat-badge-pill">{cat.badge}</span>
-                  <span className="cat-code">{cat.code}</span>
-                </div>
-
                 <div className="cat-graphic-container">
                   <CategoryGraphic id={cat.id} />
                 </div>
