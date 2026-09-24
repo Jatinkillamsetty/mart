@@ -24,6 +24,7 @@ import {
 } from "./hardwareSupabase";
 import "./App.css";
 import AdminDashboard from "./AdminDashboard";
+import { CategoryGraphic } from "./CategoryIllustrations";
 
 type Page =
   | "home"
@@ -765,6 +766,30 @@ export function App() {
         </div>
       )}
 
+      {/* TOP HORIZONTAL NAVY CATEGORY TAB BAR (Matching Image 1) */}
+      <nav className="top-category-tab-bar">
+        <div className="category-tab-scroll">
+          {CORE_CATEGORIES.map(cat => {
+            const isActive =
+              (selectedCategory === cat.id) ||
+              (selectedCategory === "All" && cat.id === "All") ||
+              (selectedCategory === "All" && cat.id === "all");
+            return (
+              <button
+                key={cat.id}
+                className={`category-tab-btn ${isActive ? "active" : ""}`}
+                onClick={() => {
+                  setSelectedCategory(cat.id);
+                  if (page !== "products") navigate("products");
+                }}
+              >
+                {cat.name}
+              </button>
+            );
+          })}
+        </div>
+      </nav>
+
       {/* PAGE CONTENT ROUTER */}
 
       {/* 1. HOMEPAGE */}
@@ -880,23 +905,43 @@ export function App() {
           </div>
         </section>
 
-        {/* SHOP BY CATEGORY SECTION */}
-        <section className="section storefront-section">
-          <div className="section-heading">
-            <p className="eyebrow">EXPLORE HARDWARE CATEGORIES</p>
-            <h2>What Are You Looking For?</h2>
-            <p>From spider glazing fittings to soft-close drawer channels, select a category to find exact specifications.</p>
+        {/* EXPLORE CATEGORIES GRID SECTION (Matching Image 2) */}
+        <section className="section explore-categories-section">
+          <div className="section-heading centered">
+            <p className="eyebrow">HARDWARE CATALOGUE</p>
+            <h2>Explore Categories</h2>
+            <p>Browse high-grade stainless steel, brass, and heavy-duty architectural fittings designed for modern doors, windows, and modular cabinetry.</p>
           </div>
-          <div className="storefront-category-grid">
-            {storefrontCategoryCards.map((category: { name: string; icon: string; description: string; action: Page }) => (
-              <button key={category.name} className="storefront-category-card" onClick={() => navigate(category.action)}>
-                <span className="storefront-category-icon">{category.icon}</span>
-                <div>
-                  <h3>{category.name}</h3>
-                  <p>{category.description}</p>
-                  <strong>Explore Category →</strong>
+
+          <div className="explore-categories-grid">
+            {CORE_CATEGORIES.map(cat => (
+              <div
+                key={cat.id}
+                className="category-explore-card"
+                onClick={() => {
+                  setSelectedCategory(cat.id);
+                  navigate("products");
+                }}
+              >
+                <div className="cat-card-header">
+                  <span className="cat-badge-pill">{cat.badge}</span>
+                  <span className="cat-code">{cat.code}</span>
                 </div>
-              </button>
+
+                <div className="cat-graphic-container">
+                  <CategoryGraphic id={cat.id} />
+                </div>
+
+                <div className="cat-card-footer-stats">
+                  <span className="cat-count">{cat.countText}</span>
+                  <button className="cat-plus-btn" aria-label="Explore category">+</button>
+                </div>
+
+                <div className="cat-card-body">
+                  <h3>{cat.name}</h3>
+                  <p>{cat.description}</p>
+                </div>
+              </div>
             ))}
           </div>
         </section>

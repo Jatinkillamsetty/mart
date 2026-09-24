@@ -2388,3 +2388,234 @@ a {
     font-size: 28px;
   }
 }
+
+
+/* ===================================================
+   IMAGE 1: TOP NAVY HORIZONTAL CATEGORY TAB BAR
+   =================================================== */
+.top-category-tab-bar {
+  background: #0f2942;
+  border-bottom: 1px solid #1e3a5f;
+  position: sticky;
+  top: 76px;
+  z-index: 45;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(15, 41, 66, 0.15);
+}
+
+.category-tab-scroll {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 0 4%;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.category-tab-scroll::-webkit-scrollbar {
+  height: 4px;
+}
+
+.category-tab-scroll::-webkit-scrollbar-track {
+  background: #0b1e36;
+}
+
+.category-tab-scroll::-webkit-scrollbar-thumb {
+  background: #254b73;
+  border-radius: 2px;
+}
+
+.category-tab-btn {
+  background: transparent;
+  color: #94a3b8;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 16px 20px;
+  border: none;
+  border-bottom: 3px solid transparent;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  cursor: pointer;
+  letter-spacing: 0.2px;
+}
+
+.category-tab-btn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.category-tab-btn.active {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+  border-bottom-color: #df302f;
+}
+
+/* ===================================================
+   IMAGE 2: EXPLORE CATEGORIES CARDS GRID
+   =================================================== */
+.explore-categories-section {
+  background: #ffffff;
+  padding: 64px 8%;
+}
+
+.section-heading.centered {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-heading.centered h2 {
+  font-size: 40px;
+  font-weight: 900;
+  color: var(--navy);
+  margin: 6px 0 12px;
+}
+
+.section-heading.centered p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--muted);
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.explore-categories-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.category-explore-card {
+  background: #f0f4f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 24px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 8px rgba(15, 41, 66, 0.03);
+}
+
+.category-explore-card:hover {
+  transform: translateY(-4px);
+  border-color: #cbd5e1;
+  background: #eef4fb;
+  box-shadow: 0 12px 28px rgba(15, 41, 66, 0.08);
+}
+
+.cat-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.cat-badge-pill {
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.8px;
+  color: #475569;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  padding: 4px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+}
+
+.cat-code {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #94a3b8;
+  font-family: monospace;
+}
+
+.cat-graphic-container {
+  width: 100%;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 8px 0 16px;
+}
+
+.cat-graphic-svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 12px rgba(15, 41, 66, 0.06));
+}
+
+.cat-card-footer-stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.cat-count {
+  font-size: 11px;
+  font-weight: 800;
+  color: #64748b;
+  letter-spacing: 0.3px;
+}
+
+.cat-plus-btn {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #0f2942;
+  font-size: 16px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.category-explore-card:hover .cat-plus-btn {
+  background: #0f2942;
+  color: #ffffff;
+  border-color: #0f2942;
+}
+
+.cat-card-body h3 {
+  font-size: 18px;
+  font-weight: 900;
+  color: #0f2942;
+  margin: 0 0 6px;
+  line-height: 1.25;
+}
+
+.cat-card-body p {
+  font-size: 13px;
+  line-height: 1.45;
+  color: #64748b;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (max-width: 1100px) {
+  .explore-categories-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 650px) {
+  .explore-categories-grid {
+    grid-template-columns: 1fr;
+  }
+  .category-tab-btn {
+    padding: 14px 14px;
+    font-size: 13px;
+  }
+}

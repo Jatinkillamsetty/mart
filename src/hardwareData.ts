@@ -39,19 +39,134 @@ export type HwBrandCard = {
   price?: number;
 };
 
-export const CORE_CATEGORIES = [
-  { id: "hinges", name: "Hinges", icon: "🚪", description: "Heavy duty, soft-close & architectural door hinges" },
-  { id: "tower-bolts", name: "Tower Bolts", icon: "🔒", description: "Brass, SS & Aluminium tower bolts for doors & windows" },
-  { id: "aldrops", name: "Aldrops", icon: "🗝️", description: "Security aldrops in premium brass, SS & aluminium finishes" },
-  { id: "latches", name: "Latches", icon: "🔐", description: "Door & window latch locks for residential & commercial use" },
-  { id: "handles", name: "Handles", icon: "✊", description: "Designer pull handles, lever handles & entrance door fittings" },
-  { id: "coat-hooks", name: "Coat Hooks", icon: "🪝", description: "Wall mounted coat & robe hooks in various finishes" },
-  { id: "baby-latches", name: "Baby Latches", icon: "🛡️", description: "Compact latches for cabinets, windows & light doors" },
-  { id: "door-stoppers", name: "Door Stoppers", icon: "🛑", description: "Floor & wall mounted door stoppers and holders" },
-  { id: "deluxe-window-stays", name: "Deluxe Window Stays", icon: "🪟", description: "Adjustable casement window stay arms & friction hinges" },
-  { id: "wardrobe-handles-knobs", name: "Wardrobe Handles & Knobs", icon: "✨", description: "Cabinet knobs, profile handles & wardrobe pulls" },
-  { id: "box-hinges", name: "Box Hinges", icon: "📦", description: "Concealed box hinges & hydraulic cabinet soft-close hinges" },
-  { id: "telescope-channels", name: "Telescope Channels", icon: "🗄️", description: "Ball bearing telescopic drawer runners & soft-close channels" },
+export type CategoryCardMeta = {
+  id: string;
+  name: string;
+  code: string;
+  badge: string;
+  countText: string;
+  icon: string;
+  description: string;
+};
+
+export const CORE_CATEGORIES: CategoryCardMeta[] = [
+  {
+    id: "All",
+    name: "All Hardware",
+    code: "CAT-001",
+    badge: "FULL RANGE",
+    countText: "134 Products",
+    icon: "🧰",
+    description: "Complete master collection of architectural hardware fixtures and structural fittings.",
+  },
+  {
+    id: "hinges",
+    name: "Hinges",
+    code: "CAT-002",
+    badge: "STAINLESS STEEL",
+    countText: "42 Variants",
+    icon: "🚪",
+    description: "Heavy-duty SS-304 butt hinges, ball-bearing joints, and soft-close door hinges.",
+  },
+  {
+    id: "tower-bolts",
+    name: "Tower Bolts",
+    code: "CAT-003",
+    badge: "HEAVY DUTY",
+    countText: "28 Sizes",
+    icon: "🔒",
+    description: "Surface mount barrel and tower bolts engineered for high-security doors & casements.",
+  },
+  {
+    id: "aldrops",
+    name: "Aldrops",
+    code: "CAT-004",
+    badge: "FORGED BRASS",
+    countText: "18 Models",
+    icon: "🗝️",
+    description: "Classic residential sliding door aldrops featuring solid forged brass and SS construction.",
+  },
+  {
+    id: "latches",
+    name: "Latches",
+    code: "CAT-005",
+    badge: "SMOOTH ACTION",
+    countText: "32 Designs",
+    icon: "🔐",
+    description: "Precision spring latches, night latches, and safety bolt keeps in antique and satin finishes.",
+  },
+  {
+    id: "handles",
+    name: "Handles",
+    code: "CAT-006",
+    badge: "BESTSELLER",
+    countText: "50+ Styles",
+    icon: "✊",
+    description: "Solid forged lever door handles with sleek modern rosettes and heavy entrance pull handles.",
+  },
+  {
+    id: "coat-hooks",
+    name: "Coat Hooks",
+    code: "CAT-007",
+    badge: "ZINC ALLOY",
+    countText: "24 Options",
+    icon: "🪝",
+    description: "Heavy-duty dual prong and single robe hooks cast from premium anti-rust zinc alloys.",
+  },
+  {
+    id: "baby-latches",
+    name: "Baby Latches",
+    code: "CAT-008",
+    badge: "CHILD SAFE",
+    countText: "14 Types",
+    icon: "🛡️",
+    description: "Child-safety multi-purpose cabinet & drawer latches with dual action locks.",
+  },
+  {
+    id: "door-stoppers",
+    name: "Door Stoppers",
+    code: "CAT-009",
+    badge: "SILENT STOP",
+    countText: "22 Variants",
+    icon: "🛑",
+    description: "Magnetic floor-mount and wall-mounted dome door stoppers with heavy rubber buffers.",
+  },
+  {
+    id: "deluxe-window-stays",
+    name: "Deluxe Window Stays",
+    code: "CAT-010",
+    badge: "WINDPROOF",
+    countText: "16 Models",
+    icon: "🪟",
+    description: "Adjustable casement window stay arms & heavy friction hinges built for stormy weather.",
+  },
+  {
+    id: "wardrobe-handles-knobs",
+    name: "Wardrobe Handles & Knobs",
+    code: "CAT-011",
+    badge: "DESIGNER",
+    countText: "40+ Styles",
+    icon: "✨",
+    description: "Cabinet knobs, profile handles & wardrobe pulls in gold, matt black and satin nickel.",
+  },
+  {
+    id: "box-hinges",
+    name: "Box Hinges",
+    code: "CAT-012",
+    badge: "HYDRAULIC",
+    countText: "20 Types",
+    icon: "📦",
+    description: "Concealed box hinges & hydraulic 3D adjustable cabinet soft-close hinges.",
+  },
+  {
+    id: "telescope-channels",
+    name: "Telescope Channels",
+    code: "CAT-013",
+    badge: "BALL BEARING",
+    countText: "36 Sizes",
+    icon: "🗄️",
+    description: "Full extension ball bearing telescopic drawer runners & soft-close channels.",
+  },
 ];
 
 export const ALL_BRANDS = [
