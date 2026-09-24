@@ -269,3 +269,98 @@ export function getBrandCards(category: HwCategory, groupName: string = "Hardwar
   return cards;
 }
 
+export type BrandDetail = {
+  id: string;
+  name: string;
+  tagline: string;
+  story: string;
+  specialty: string;
+  country: string;
+  badge: string;
+  color: string;
+};
+
+export const BRAND_DETAILS: BrandDetail[] = [
+  {
+    id: "ozone",
+    name: "Ozone",
+    tagline: "Architectural Glass & Fittings Specialist",
+    story: "India's market leader in architectural glass hardware, point-fixed spider glazing, patch fittings, and frameless glass partition systems.",
+    specialty: "Spider Glazing & Patch Fittings",
+    country: "India",
+    badge: "Authorized Distributor",
+    color: "#0284c7"
+  },
+  {
+    id: "dorma",
+    name: "Dorma / Dormakaba",
+    tagline: "German Engineering for Glass Controls",
+    story: "Global benchmark for heavy-duty hydraulic floor springs, door closers, automatic sliding glass doors, and high-security access controls.",
+    specialty: "Hydraulic Floor Springs & Controls",
+    country: "Germany",
+    badge: "Premium Partner",
+    color: "#1e3a8a"
+  },
+  {
+    id: "hafele",
+    name: "Häfele",
+    tagline: "German Architectural Hardware & Fittings",
+    story: "Renowned worldwide for precision door handles, electronic locks, sliding partition hardware, and architectural glass fittings.",
+    specialty: "Architectural Hardware & Locks",
+    country: "Germany",
+    badge: "Authorized Dealer",
+    color: "#b91c1c"
+  },
+  {
+    id: "hettich",
+    name: "Hettich",
+    tagline: "Technik für Möbel - German Furniture Fittings",
+    story: "Pioneers in silent soft-close hydraulic cabinet hinges, Quadro telescopic runners, and premium sliding door systems for wardrobes and kitchens.",
+    specialty: "Concealed Hinges & Soft-Close Runners",
+    country: "Germany",
+    badge: "Authorized Stockist",
+    color: "#047857"
+  },
+  {
+    id: "ebco",
+    name: "Ebco",
+    tagline: "India's Premier Furniture & Window Hardware",
+    story: "Over 50 years of manufacturing excellence in heavy-duty telescopic drawer slides, window friction stays, and smart storage fittings.",
+    specialty: "Telescopic Channels & Window Stays",
+    country: "India",
+    badge: "Direct Distributor",
+    color: "#c2410c"
+  },
+  {
+    id: "jyothi",
+    name: "Jyothi",
+    tagline: "Solid Brass & SS Architectural Fittings",
+    story: "Craftsmanship in solid brass aldrops, decorative entrance handles, heavy tower bolts, and classic architectural door hardware.",
+    specialty: "Solid Brass Aldrops & Tower Bolts",
+    country: "India",
+    badge: "Certified Retailer",
+    color: "#854d0e"
+  },
+  {
+    id: "jai-shankar",
+    name: "Jai Shankar",
+    tagline: "Heavy-Duty Stainless Steel Hardware",
+    story: "Grade 304 stainless steel hinges, security latches, and rugged hardware designed for maximum corrosion resistance and longevity.",
+    specialty: "Grade 304 SS Hinges & Latches",
+    country: "India",
+    badge: "Factory Direct",
+    color: "#475569"
+  },
+  {
+    id: "simor",
+    name: "Simor",
+    tagline: "Modern Architectural Pull Handles & Knobs",
+    story: "Designer entrance door handles, profile wardrobe pulls, and glass knob locks with satin, antique, and PVD gold finishes.",
+    specialty: "Designer Pull Handles & Profiles",
+    country: "India",
+    badge: "Authorized Stockist",
+    color: "#6b21a8"
+  }
+];
+
+

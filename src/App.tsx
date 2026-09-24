@@ -14,6 +14,8 @@ import {
   HwBrandCard,
   HwGroup,
   HwCategory,
+  BRAND_DETAILS,
+  BrandDetail,
 } from "./hardwareData";
 import {
   getHardwareVariantStock,
@@ -767,12 +769,192 @@ export function App() {
 
       {/* 1. HOMEPAGE */}
       {page === "home" && <main className="storefront-home">
-      <section className="storefront-hero"><div className="storefront-hero-copy"><p className="storefront-kicker">GLASS • HARDWARE • PROJECT SUPPLIES</p><h1>Everything you need for your glass project.</h1><p>Shop glass products and hardware with clear pricing, live stock and a simple cart-to-checkout experience.</p><div className="storefront-hero-actions"><button className="primary-btn" onClick={() => navigate("products")}>Shop products</button><button className="secondary-btn" onClick={() => navigate("products")}>Shop hardware</button></div></div><div className="storefront-hero-image"><img src={glassProduct} alt="Glassmart products"/><div className="storefront-hero-tag"><strong>Ready to order?</strong><span>Pick a product, add it to cart and checkout.</span></div></div></section>
-      <section className="storefront-benefits"><div><strong>Fast support</strong><span>Quick help for product and project needs</span></div><div><strong>Genuine products</strong><span>Managed catalogue and real inventory</span></div><div><strong>Clear pricing</strong><span>Transparent pricing before checkout</span></div><div><strong>Easy ordering</strong><span>Cart, checkout and order tracking</span></div></section>
-      <section className="section storefront-section"><div className="section-heading"><p className="eyebrow">SHOP BY CATEGORY</p><h2>What are you looking for?</h2><p>Choose a category and find the right products for your job.</p></div><div className="storefront-category-grid">{storefrontCategoryCards.map((category: { name: string; icon: string; description: string; action: Page }) => <button key={category.name} className="storefront-category-card" onClick={() => navigate(category.action)}><span className="storefront-category-icon">{category.icon}</span><div><h3>{category.name}</h3><p>{category.description}</p><strong>Shop now →</strong></div></button>)}</div></section>
-      <section className="section storefront-products-strip"><div className="section-heading"><p className="eyebrow">POPULAR PRODUCTS</p><h2>Shop from the catalogue</h2><p>Products added or updated by your admin appear here automatically.</p></div><div className="products-grid storefront-product-grid">{filteredCatalogCards.slice(0, 8).map((p: HwBrandCard) => <article className="product-card" key={`${p.groupName}-${p.categoryName}-${p.brand}`}><div className="product-image">{p.image ? <img src={p.image} alt={p.brand}/> : <span>GLASSMART</span>}</div><div className="product-info"><p className="product-category">{p.categoryName}</p><h3>{p.brand} {p.categoryName}</h3><p className="product-description">{p.groupName}</p><div className="product-pricing"><strong>{money(Number(p.price || HARDWARE_MRP))}</strong></div><p className={p.stock > 0 ? "product-stock" : "product-stock out"}>{p.stock > 0 ? `${p.stock} in stock` : "Out of stock"}</p><div className="card-actions"><button className="primary-btn" disabled={p.stock <= 0} onClick={() => addToCartFromCard(p)}>Add to cart</button><button className="secondary-btn" onClick={() => openProductDetail(p)}>View</button></div></div></article>)}</div><div className="storefront-centered-action"><button className="secondary-btn" onClick={() => navigate("products")}>View all products</button></div></section>
-      <section className="section storefront-service-banner"><div><p className="eyebrow">PROJECT & SITE SUPPORT</p><h2>Need a custom size, installation or bulk requirement?</h2><p>Send your requirement directly to the team and manage enquiries from the admin dashboard.</p></div><button className="primary-btn" onClick={() => navigate("services")}>Request a quote</button></section>
-    </main>}
+        {/* HERO SECTION */}
+        <section className="storefront-hero">
+          <div className="storefront-hero-copy">
+            <p className="storefront-kicker">SOUTH INDIA'S PREMIER ARCHITECTURAL DESTINATION</p>
+            <h1>Certified Glass & World-Class Door Hardware</h1>
+            <p>Authorized distributor for global engineering leaders. Explore 15+ top hardware brands with transparent pricing, guaranteed authenticity, and direct site support.</p>
+            
+            <div className="storefront-hero-stats">
+              <div><strong>15+</strong><span>Top Global Brands</span></div>
+              <div><strong>10,000+</strong><span>Completed Projects</span></div>
+              <div><strong>25+ Yrs</strong><span>Architectural Trust</span></div>
+            </div>
+
+            <div className="storefront-hero-actions">
+              <button className="primary-btn" onClick={() => navigate("products")}>Explore All Products</button>
+              <a className="secondary-btn" href="#brand-showcase">View Partner Brands</a>
+              <button className="secondary-btn" onClick={() => navigate("services")}>Request Project Quote</button>
+            </div>
+          </div>
+
+          <div className="storefront-hero-image">
+            <img src={glassProduct} alt="Glassmart architectural hardware showcase"/>
+            <div className="storefront-hero-tag">
+              <strong>100% Factory Genuine Guarantee</strong>
+              <span>Ozone • Dormakaba • Häfele • Hettich • Ebco • Jyothi</span>
+            </div>
+          </div>
+        </section>
+
+        {/* TRUST BENEFITS STRIP */}
+        <section className="storefront-benefits">
+          <div><strong>Authorized Distributor</strong><span>Direct factory relationship with 100% genuine warranty</span></div>
+          <div><strong>Grade 304 SS & Solid Brass</strong><span>Tested for coastal weather, heavy traffic & zero corrosion</span></div>
+          <div><strong>5,000 Sq. Ft. Live Showroom</strong><span>Experience working sliding glass partitions & hydraulic springs</span></div>
+          <div><strong>Architect & Site Guidance</strong><span>Hole cutout templates, glass load specs & blue print support</span></div>
+        </section>
+
+        {/* SHOP STORY & LEGACY SECTION */}
+        <section className="storefront-story-section">
+          <div className="storefront-story-container">
+            <div className="storefront-story-badge">OUR HERITAGE & MISSION</div>
+            <h2>Built on Precision, Authenticity & Architectural Excellence Since 1998</h2>
+            <p className="storefront-story-lead">
+              What started as a specialized glass cutting workshop in 1998 has grown into South India's most trusted destination for premium architectural glass fittings, spider glazing systems, hydraulic door controls, and furniture hardware.
+            </p>
+            <p className="storefront-story-body">
+              Whether you are an architect detailing a structural glass facade, an interior contractor building luxury shower enclosures, or a homeowner upgrading entrance door handles, Glass Mart bridges the gap between world-class engineering and seamless supply chain delivery.
+            </p>
+
+            <div className="storefront-story-grid">
+              <div className="story-card">
+                <div className="story-icon">🏭</div>
+                <h3>5,000 Sq. Ft. Live Display Center</h3>
+                <p>Walk through our state-of-the-art showroom featuring live working demonstrations of hydraulic floor springs, automatic sliding doors, shower cubicles, and patch fittings.</p>
+              </div>
+              <div className="story-card">
+                <div className="story-icon">🛡️</div>
+                <h3>100% Certified Originals</h3>
+                <p>We source directly from manufacturers like Dormakaba, Ozone, Häfele, Hettich, and Ebco. Zero counterfeits, 100% peace of mind with full manufacturer warranties.</p>
+              </div>
+              <div className="story-card">
+                <div className="story-icon">📐</div>
+                <h3>Blueprint & Technical Assistance</h3>
+                <p>Our dedicated site engineers review your project blue prints, recommend correct glass thickness (8mm, 10mm, 12mm), and supply exact cutout dimensions.</p>
+              </div>
+              <div className="story-card">
+                <div className="story-icon">🚚</div>
+                <h3>10,000+ Ready Warehouse Inventory</h3>
+                <p>Centralized warehousing ensures bulk orders, contractor shipments, and emergency site replacements are dispatched within 24 hours.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* BRAND SHOWCASE & BRAND STORIES SECTION */}
+        <section className="storefront-section brand-showcase-section" id="brand-showcase">
+          <div className="section-heading">
+            <p className="eyebrow">OUR AUTHORIZED BRAND PARTNERS</p>
+            <h2>World-Class Brands Under One Roof</h2>
+            <p>Click any brand to explore their specialized story, engineering legacy, and hardware catalogue.</p>
+          </div>
+
+          <div className="brand-cards-grid">
+            {BRAND_DETAILS.map((brand: BrandDetail) => (
+              <div className="brand-spotlight-card" key={brand.id} style={{ borderTopColor: brand.color }}>
+                <div className="brand-card-header">
+                  <div>
+                    <span className="brand-country">{brand.country}</span>
+                    <h3>{brand.name}</h3>
+                  </div>
+                  <span className="brand-badge" style={{ backgroundColor: brand.color }}>{brand.badge}</span>
+                </div>
+                <p className="brand-tagline">{brand.tagline}</p>
+                <p className="brand-story-text">{brand.story}</p>
+                <div className="brand-specialty-pill">
+                  <strong>Specialty:</strong> {brand.specialty}
+                </div>
+                <button
+                  className="primary-btn brand-shop-btn"
+                  onClick={() => {
+                    setSelectedBrand(brand.name.split("/")[0].trim());
+                    navigate("products");
+                  }}
+                >
+                  Shop {brand.name} Hardware →
+                </button>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* SHOP BY CATEGORY SECTION */}
+        <section className="section storefront-section">
+          <div className="section-heading">
+            <p className="eyebrow">EXPLORE HARDWARE CATEGORIES</p>
+            <h2>What Are You Looking For?</h2>
+            <p>From spider glazing fittings to soft-close drawer channels, select a category to find exact specifications.</p>
+          </div>
+          <div className="storefront-category-grid">
+            {storefrontCategoryCards.map((category: { name: string; icon: string; description: string; action: Page }) => (
+              <button key={category.name} className="storefront-category-card" onClick={() => navigate(category.action)}>
+                <span className="storefront-category-icon">{category.icon}</span>
+                <div>
+                  <h3>{category.name}</h3>
+                  <p>{category.description}</p>
+                  <strong>Explore Category →</strong>
+                </div>
+              </button>
+            ))}
+          </div>
+        </section>
+
+        {/* POPULAR CATALOGUE PRODUCTS */}
+        <section className="section storefront-products-strip">
+          <div className="section-heading">
+            <p className="eyebrow">FEATURED HARDWARE</p>
+            <h2>Trending Hardware & Glass Products</h2>
+            <p>Real-time stock and prices straight from our warehouse database.</p>
+          </div>
+          <div className="products-grid storefront-product-grid">
+            {filteredCatalogCards.slice(0, 8).map((p: HwBrandCard) => (
+              <article className="product-card" key={`${p.groupName}-${p.categoryName}-${p.brand}`}>
+                <div className="product-image">
+                  {p.image ? <img src={p.image} alt={p.brand} /> : <span>GLASSMART</span>}
+                </div>
+                <div className="product-info">
+                  <p className="product-category">{p.categoryName}</p>
+                  <h3>{p.brand} {p.categoryName}</h3>
+                  <p className="product-description">{p.groupName}</p>
+                  <div className="product-pricing">
+                    <strong>{money(Number(p.price || HARDWARE_MRP))}</strong>
+                  </div>
+                  <p className={p.stock > 0 ? "product-stock" : "product-stock out"}>
+                    {p.stock > 0 ? `${p.stock} in stock` : "Out of stock"}
+                  </p>
+                  <div className="card-actions">
+                    <button className="primary-btn" disabled={p.stock <= 0} onClick={() => addToCartFromCard(p)}>
+                      Add to Cart
+                    </button>
+                    <button className="secondary-btn" onClick={() => openProductDetail(p)}>
+                      View Specs
+                    </button>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+          <div className="storefront-centered-action">
+            <button className="primary-btn" onClick={() => navigate("products")}>
+              View Complete Catalogue ({allCatalogCards.length} Products) →
+            </button>
+          </div>
+        </section>
+
+        {/* PROJECT CONSULTATION & SHOWROOM BANNER */}
+        <section className="section storefront-service-banner">
+          <div>
+            <p className="eyebrow">COMMERCIAL & RESIDENTIAL PROJECTS</p>
+            <h2>Planning a Glass Facade, Office Partition or Hotel Renovation?</h2>
+            <p>Work directly with our technical hardware consultants. Get custom glass dimension quotes, bulk tier pricing, and hardware schedules.</p>
+          </div>
+          <button className="primary-btn" onClick={() => navigate("services")}>
+            Request Project Consultation
+          </button>
+        </section>
+      </main>}
     {page === "products" && (
         <main className="page-container catalog-page">
           <div className="catalog-header">
