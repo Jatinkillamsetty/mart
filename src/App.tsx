@@ -766,30 +766,6 @@ export function App() {
         </div>
       )}
 
-      {/* TOP HORIZONTAL NAVY CATEGORY TAB BAR (Matching Image 1) */}
-      <nav className="top-category-tab-bar">
-        <div className="category-tab-scroll">
-          {CORE_CATEGORIES.map(cat => {
-            const isActive =
-              (selectedCategory === cat.id) ||
-              (selectedCategory === "All" && cat.id === "All") ||
-              (selectedCategory === "All" && cat.id === "all");
-            return (
-              <button
-                key={cat.id}
-                className={`category-tab-btn ${isActive ? "active" : ""}`}
-                onClick={() => {
-                  setSelectedCategory(cat.id);
-                  if (page !== "products") navigate("products");
-                }}
-              >
-                {cat.name}
-              </button>
-            );
-          })}
-        </div>
-      </nav>
-
       {/* PAGE CONTENT ROUTER */}
 
       {/* 1. HOMEPAGE */}

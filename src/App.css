@@ -2394,13 +2394,7 @@ a {
    IMAGE 1: TOP NAVY HORIZONTAL CATEGORY TAB BAR
    =================================================== */
 .top-category-tab-bar {
-  background: #0f2942;
-  border-bottom: 1px solid #1e3a5f;
-  position: sticky;
-  top: 76px;
-  z-index: 45;
-  width: 100%;
-  box-shadow: 0 4px 12px rgba(15, 41, 66, 0.15);
+  display: none !important;
 }
 
 .category-tab-scroll {
