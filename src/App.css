@@ -3591,12 +3591,14 @@ a {
   }
 }
 
-/* HORIZONTAL SCROLLING BRAND MARQUEE STYLES */
-.brand-showcase-section {
-  padding: 56px 6%;
+/* INFINITE HORIZONTAL BRAND LOGO MARQUEE STYLES */
+.brand-marquee-section {
+  padding: 56px 0;
   background: #f8fafc;
   border-top: 1px solid #e2e8f0;
   border-bottom: 1px solid #e2e8f0;
+  overflow: hidden;
+  position: relative;
 }
 
 .brand-section-header {
@@ -3604,6 +3606,7 @@ a {
   justify-content: space-between;
   align-items: flex-end;
   margin-bottom: 32px;
+  padding: 0 6%;
 }
 
 .brand-section-header h2 {
@@ -3619,67 +3622,52 @@ a {
   margin: 0;
 }
 
-.brand-scroll-controls {
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  mask-image: linear-gradient(to right, transparent, #000 3%, #000 97%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 3%, #000 97%, transparent);
+  padding: 12px 0 28px;
+}
+
+.marquee-track {
   display: flex;
-  gap: 10px;
+  gap: 32px;
+  width: max-content;
+  animation: infiniteMarqueeRightToLeft 45s linear infinite;
+  will-change: transform;
 }
 
-.brand-scroll-btn {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  border: 1px solid #cbd5e1;
-  background: #ffffff;
-  color: #1e293b;
-  font-size: 22px;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+.marquee-container:hover .marquee-track {
+  animation-play-state: paused;
 }
 
-.brand-scroll-btn:hover {
-  background: #0f172a;
-  color: #ffffff;
-  border-color: #0f172a;
-  transform: translateY(-1px);
-}
-
-.brand-scroll-track {
-  display: flex;
-  gap: 20px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding: 10px 4px 24px;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  scroll-behavior: smooth;
-}
-
-.brand-scroll-track::-webkit-scrollbar {
-  display: none;
+@keyframes infiniteMarqueeRightToLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .brand-scroll-card {
-  flex: 0 0 290px;
-  scroll-snap-align: start;
+  flex: 0 0 280px;
   background: #ffffff;
   border: 1px solid #e2e8f0;
   border-radius: 14px;
   overflow: hidden;
   cursor: pointer;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
   display: flex;
   flex-direction: column;
 }
 
 .brand-scroll-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 16px 32px rgba(15, 23, 42, 0.12);
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 18px 36px rgba(15, 23, 42, 0.14);
   border-color: #cbd5e1;
 }
 
@@ -3692,6 +3680,19 @@ a {
   padding: 16px;
   border-bottom: 2px solid #e2e8f0;
   position: relative;
+  background: #ffffff;
+}
+
+.brand-logo-img {
+  max-width: 85%;
+  max-height: 75px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08));
+  transition: transform 0.2s ease;
+}
+
+.brand-scroll-card:hover .brand-logo-img {
+  transform: scale(1.06);
 }
 
 /* WIGWAM */

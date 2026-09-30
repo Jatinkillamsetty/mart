@@ -23,6 +23,24 @@ import austinDefender2xImg from "../Plywood_images/Austin_Defender_2X.png";
 import austinLincolnMrImg from "../Plywood_images/Austin_Lincoln_MR_Plywood.png";
 import svWoodsNfcImg from "../Plywood_images/SV_Woods_NFC_Board.png";
 
+// SEPARATE BRAND LOGO PNG IMPORTS
+import wigwamLogo from "../separate_brand_logos_png/Wigwam.png";
+import royaleToucheLogo from "../separate_brand_logos_png/Royale_Touche.png";
+import austinLogo from "../separate_brand_logos_png/Austin_Plywood.png";
+import raintreeLogo from "../separate_brand_logos_png/Raintree_Plywood.png";
+import saintGobainLogo from "../separate_brand_logos_png/Saint_Gobain.png";
+import godrejLogo from "../separate_brand_logos_png/Godrej_Locks.png";
+import hettichLogo from "../separate_brand_logos_png/Hettich.png";
+import simorLogo from "../separate_brand_logos_png/Simor_Hardware_Fittings.png";
+import nimmiLogo from "../separate_brand_logos_png/Nimmi_Hardware.png";
+import jyotiLogo from "../separate_brand_logos_png/Jyoti_Brass_Metals.png";
+import yaleLogo from "../separate_brand_logos_png/Yale.png";
+import taitonLogo from "../separate_brand_logos_png/Taiton_Architectural_Hardware.png";
+import sleekLogo from "../separate_brand_logos_png/Sleek_Kitchens.png";
+import neolaxeLogo from "../separate_brand_logos_png/Neolaxe_Laminate.png";
+import treelamLogo from "../separate_brand_logos_png/Treelam.png";
+import newMikaLogo from "../separate_brand_logos_png/New_Mika.png";
+
 export type HwVariant = {
   brands: string[];
   sizes: string[];
@@ -835,6 +853,7 @@ export type BrandDetail = {
   country: string;
   badge: string;
   color: string;
+  logoImg?: string;
 };
 
 export const BRAND_DETAILS: BrandDetail[] = [
@@ -846,7 +865,8 @@ export const BRAND_DETAILS: BrandDetail[] = [
     specialty: "Fire Retardant & Marine BWP Plywood",
     country: "India",
     badge: "Authorized Display Partner",
-    color: "#b91c1c"
+    color: "#b91c1c",
+    logoImg: wigwamLogo
   },
   {
     id: "royale-touche",
@@ -856,7 +876,8 @@ export const BRAND_DETAILS: BrandDetail[] = [
     specialty: "High-Performance BWP Ply & Laminates",
     country: "India",
     badge: "Authorized Stockist",
-    color: "#1e3a8a"
+    color: "#1e3a8a",
+    logoImg: royaleToucheLogo
   },
   {
     id: "austin",
@@ -866,7 +887,8 @@ export const BRAND_DETAILS: BrandDetail[] = [
     specialty: "Marine BWP Plywood & WPC Doors",
     country: "India",
     badge: "Direct Distributor",
-    color: "#c2410c"
+    color: "#c2410c",
+    logoImg: austinLogo
   },
   {
     id: "raintree",
@@ -876,7 +898,8 @@ export const BRAND_DETAILS: BrandDetail[] = [
     specialty: "Gurjan Face BWP & Fire-Retardant Ply",
     country: "India",
     badge: "Certified Dealer",
-    color: "#15803d"
+    color: "#15803d",
+    logoImg: raintreeLogo
   },
   {
     id: "saint-gobain",
@@ -886,7 +909,8 @@ export const BRAND_DETAILS: BrandDetail[] = [
     specialty: "Tough Glass & Architectural Glazing",
     country: "France",
     badge: "Authorized Partner",
-    color: "#0284c7"
+    color: "#0284c7",
+    logoImg: saintGobainLogo
   },
   {
     id: "godrej",
@@ -896,7 +920,8 @@ export const BRAND_DETAILS: BrandDetail[] = [
     specialty: "Digital & Security Door Locks",
     country: "India",
     badge: "Authorized Retailer",
-    color: "#d97706"
+    color: "#d97706",
+    logoImg: godrejLogo
   },
   {
     id: "hettich",
@@ -906,7 +931,8 @@ export const BRAND_DETAILS: BrandDetail[] = [
     specialty: "Concealed Hinges & Soft-Close Runners",
     country: "Germany",
     badge: "Authorized Stockist",
-    color: "#047857"
+    color: "#047857",
+    logoImg: hettichLogo
   },
   {
     id: "simor",
@@ -916,7 +942,8 @@ export const BRAND_DETAILS: BrandDetail[] = [
     specialty: "Designer Pull Handles & Profiles",
     country: "India",
     badge: "Certified Distributor",
-    color: "#6b21a8"
+    color: "#6b21a8",
+    logoImg: simorLogo
   },
   {
     id: "nimmi",
@@ -926,7 +953,8 @@ export const BRAND_DETAILS: BrandDetail[] = [
     specialty: "Cabinet Handles & Profile Pulls",
     country: "India",
     badge: "Authorized Stockist",
-    color: "#a16207"
+    color: "#a16207",
+    logoImg: nimmiLogo
   },
   {
     id: "jyoti",
@@ -936,7 +964,8 @@ export const BRAND_DETAILS: BrandDetail[] = [
     specialty: "Solid Brass Aldrops & Tower Bolts",
     country: "India",
     badge: "Direct Factory Partner",
-    color: "#854d0e"
+    color: "#854d0e",
+    logoImg: jyotiLogo
   },
   {
     id: "yale",
@@ -946,7 +975,8 @@ export const BRAND_DETAILS: BrandDetail[] = [
     specialty: "Biometric & Digital Smart Locks",
     country: "USA",
     badge: "Authorized Dealer",
-    color: "#eab308"
+    color: "#eab308",
+    logoImg: yaleLogo
   },
   {
     id: "taiton",
@@ -956,7 +986,8 @@ export const BRAND_DETAILS: BrandDetail[] = [
     specialty: "Spider Glazing & Glass Patch Fittings",
     country: "India",
     badge: "Certified Partner",
-    color: "#0369a1"
+    color: "#0369a1",
+    logoImg: taitonLogo
   },
   {
     id: "sleek",
@@ -966,7 +997,8 @@ export const BRAND_DETAILS: BrandDetail[] = [
     specialty: "Modular Kitchen Baskets & Hardware",
     country: "India",
     badge: "Authorized Display Center",
-    color: "#b91c1c"
+    color: "#b91c1c",
+    logoImg: sleekLogo
   },
   {
     id: "neolaxe",
@@ -976,7 +1008,8 @@ export const BRAND_DETAILS: BrandDetail[] = [
     specialty: "1mm Acrylic & Textured Laminates",
     country: "India",
     badge: "Authorized Stockist",
-    color: "#475569"
+    color: "#475569",
+    logoImg: neolaxeLogo
   },
   {
     id: "treelam",
@@ -986,7 +1019,8 @@ export const BRAND_DETAILS: BrandDetail[] = [
     specialty: "Synchronised & Exterior Laminates",
     country: "India",
     badge: "Certified Stockist",
-    color: "#166534"
+    color: "#166534",
+    logoImg: treelamLogo
   },
   {
     id: "new-mika",
@@ -996,7 +1030,8 @@ export const BRAND_DETAILS: BrandDetail[] = [
     specialty: "Decorative Interior Laminate Sheets",
     country: "India",
     badge: "Authorized Retailer",
-    color: "#d97706"
+    color: "#d97706",
+    logoImg: newMikaLogo
   }
 ];
 
