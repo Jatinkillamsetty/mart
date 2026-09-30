@@ -48,6 +48,82 @@ type Page =
   | "wishlist"
   | "admin";
 
+function KarOfficialLogo({ height = 52, darkTheme = false }: { height?: number; darkTheme?: boolean }) {
+  const textColor = darkTheme ? "#ffffff" : "#383838";
+  return (
+    <svg
+      height={height}
+      viewBox="0 0 260 115"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      style={{ display: "block", height: `${height}px`, width: "auto" }}
+    >
+      {/* RED OUTER FRAME BOX */}
+      <path
+        d="M 116 5 L 175 5 L 175 58 L 85 58 L 85 5 L 102 5"
+        fill="none"
+        stroke="#e52e2e"
+        strokeWidth="6"
+        strokeLinejoin="miter"
+      />
+
+      {/* K LETTER IN RED */}
+      <path
+        d="M 94 11 L 94 52 M 94 32 L 120 11 M 102 26 L 123 52"
+        fill="none"
+        stroke="#e52e2e"
+        strokeWidth="7.5"
+        strokeLinecap="square"
+      />
+
+      {/* AR LETTERS IN DARK GREY / WHITE */}
+      <text
+        x="128"
+        y="47"
+        fill={textColor}
+        fontSize="34"
+        fontWeight="900"
+        fontFamily="Inter, system-ui, sans-serif"
+        letterSpacing="-1"
+      >
+        AR
+      </text>
+
+      {/* COMPANY NAME: KANDAKATLA ARJUN RAO */}
+      <text
+        x="130"
+        y="77"
+        textAnchor="middle"
+        fontSize="13.5"
+        fontWeight="800"
+        fontFamily="Outfit, Inter, sans-serif"
+        letterSpacing="0.2"
+      >
+        <tspan fill={textColor}>KANDAKATLA </tspan>
+        <tspan fill="#e52e2e">A</tspan>
+        <tspan fill={textColor}>RJUN RAO</tspan>
+      </text>
+
+      {/* RED UNDERLINE */}
+      <line x1="8" y1="83" x2="252" y2="83" stroke="#e52e2e" strokeWidth="2.5" strokeLinecap="round" />
+
+      {/* MART NAME: GLASS MART */}
+      <text
+        x="130"
+        y="105"
+        textAnchor="middle"
+        fill={textColor}
+        fontSize="16"
+        fontWeight="800"
+        fontFamily="Outfit, Inter, sans-serif"
+        letterSpacing="4"
+      >
+        GLASS MART
+      </text>
+    </svg>
+  );
+}
+
 type CartItem = {
   id: string;
   name: string;
@@ -640,12 +716,9 @@ export function App() {
         <button
           className="logo kar-header-logo"
           onClick={() => navigate(userRole === "admin" ? "admin" : "home")}
+          aria-label="Kandakatla Arjun Rao Glass Mart"
         >
-          <div className="kar-badge-box">KAR</div>
-          <div className="kar-text-group">
-            <span className="kar-company-name">KAR</span>
-            <span className="kar-mart-name">GLASS MART</span>
-          </div>
+          <KarOfficialLogo height={54} />
         </button>
 
         {userRole !== "admin" && (
@@ -1108,6 +1181,9 @@ export function App() {
           <footer className="editorial-footer">
             <div className="editorial-footer-top">
               <div className="editorial-footer-brand-box">
+                <div style={{ marginBottom: "16px" }}>
+                  <KarOfficialLogo height={58} darkTheme={true} />
+                </div>
                 <p className="footer-tagline-text">
                   Display Centre: #D-14/A, Industrial Estate, Mulugu Road, Warangal, Telangana. <br />
                   Bringing certified engineering comfort and premium architectural timber to your workspace.

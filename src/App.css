@@ -3472,14 +3472,19 @@ a {
 
 /* KANDAKATLA ARJUN RAO GLASS MART HEADER LOGO & TRUST BADGES STYLES */
 .kar-header-logo {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 14px;
   background: transparent;
   border: none;
   cursor: pointer;
-  padding: 4px 0;
-  text-align: left;
+  padding: 2px 4px;
+  margin: 0;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.kar-header-logo:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
 }
 
 .kar-badge-box {
