@@ -2842,3 +2842,632 @@ a {
   font-weight: bold;
 }
 
+/* ===================================================
+   LUXURY EDITORIAL HOMEPAGE (COLLISON DESIGN STYLE)
+   =================================================== */
+.editorial-home {
+  background-color: #eae6df;
+  color: #1c1917;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+}
+
+/* 1. HERO SECTION */
+.editorial-hero {
+  position: relative;
+  width: 100%;
+  height: 82vh;
+  min-height: 560px;
+  max-height: 850px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 32px 48px 48px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.editorial-hero-bg-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.editorial-hero-bg-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.85) contrast(1.05);
+}
+
+.editorial-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(28, 25, 23, 0.4) 0%,
+    rgba(28, 25, 23, 0.1) 40%,
+    rgba(28, 25, 23, 0.65) 100%
+  );
+}
+
+.editorial-hero-nav {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.editorial-hero-nav button {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  padding: 6px 12px;
+}
+
+.editorial-hero-nav button:hover {
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.editorial-hero-nav .dot {
+  opacity: 0.5;
+  font-size: 8px;
+}
+
+.editorial-hero-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  margin-top: auto;
+}
+
+.editorial-hero-subtitle {
+  max-width: 460px;
+  margin: 0 auto 20px;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 13px;
+  line-height: 1.6;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+
+.editorial-hero-title {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(3.5rem, 11vw, 8.5rem);
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  line-height: 0.9;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  font-family: 'Outfit', 'Inter', serif;
+}
+
+/* 2. BLUEPRINT CATEGORY STRIP */
+.blueprint-category-strip {
+  background-color: #eae6df;
+  padding: 32px 48px;
+  border-bottom: 1px solid #d4cebe;
+}
+
+.blueprint-track {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 16px;
+}
+
+.blueprint-card {
+  background-color: #f6f3ed;
+  border: 1px solid #dbd5c7;
+  border-radius: 6px;
+  padding: 16px 16px 14px;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 160px;
+  position: relative;
+}
+
+.blueprint-card:hover {
+  transform: translateY(-4px);
+  background-color: #ffffff;
+  border-color: #1c1917;
+  box-shadow: 0 12px 24px -8px rgba(0,0,0,0.08);
+}
+
+.blueprint-number {
+  font-size: 10px;
+  font-weight: 600;
+  color: #a8a29e;
+  letter-spacing: 0.1em;
+}
+
+.blueprint-graphic-wrap {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 8px 0;
+}
+
+.blueprint-graphic-wrap svg {
+  width: 100%;
+  height: 100%;
+  max-height: 65px;
+}
+
+.blueprint-card-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #e7e2d7;
+  padding-top: 10px;
+  margin-top: 4px;
+}
+
+.blueprint-name {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #292524;
+}
+
+.blueprint-arrow {
+  font-size: 12px;
+  color: #78716c;
+  transition: transform 0.2s ease;
+}
+
+.blueprint-card:hover .blueprint-arrow {
+  transform: translate(2px, -2px);
+  color: #1c1917;
+}
+
+/* 3. EDITORIAL ANNOUNCEMENT & STATEMENT */
+.editorial-announcement-section {
+  padding: 80px 48px;
+  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.editorial-kicker {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #78716c;
+  margin-bottom: 24px;
+}
+
+.editorial-statement-heading {
+  font-size: clamp(1.4rem, 3.2vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  line-height: 1.5;
+  color: #1c1917;
+  text-transform: uppercase;
+}
+
+.inline-icon {
+  display: inline-block;
+  font-size: 0.9em;
+  vertical-align: middle;
+  margin: 0 4px;
+  filter: grayscale(0.2);
+}
+
+/* 4. ARCHITECTURAL SPACES SECTION */
+.editorial-spaces-section {
+  padding: 40px 48px 80px;
+}
+
+.editorial-spaces-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  border-bottom: 1px solid #d4cebe;
+  padding-bottom: 16px;
+}
+
+.editorial-spaces-header h3,
+.editorial-signature-header h3 {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #1c1917;
+  margin: 0;
+}
+
+.editorial-link-btn {
+  background: none;
+  border: none;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: #44403c;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.editorial-link-btn:hover {
+  color: #000000;
+  text-decoration: underline;
+}
+
+.editorial-spaces-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 36px;
+}
+
+.space-feature-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.space-card-image-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: 4px;
+  background-color: #d6d0c4;
+}
+
+.space-card-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.space-feature-card:hover .space-card-image-wrap img {
+  transform: scale(1.04);
+}
+
+/* Blueprint overlay on photo (matching reference image line art overlay) */
+.space-blueprint-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 55%;
+  height: 65%;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blueprint-box-drawing {
+  width: 80%;
+  height: 70%;
+  border: 1px stroke rgba(255, 255, 255, 0.9);
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(255, 255, 255, 0.1) 10px,
+    rgba(255, 255, 255, 0.1) 11px
+  );
+}
+
+.space-card-caption {
+  margin-top: 20px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.space-card-caption h4 {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: #1c1917;
+  margin: 0 0 8px;
+}
+
+.space-card-caption p {
+  font-size: 12px;
+  line-height: 1.6;
+  color: #57534e;
+  margin: 0;
+  max-width: 380px;
+}
+
+.see-products-btn {
+  background: none;
+  border: none;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: #1c1917;
+  cursor: pointer;
+  white-space: nowrap;
+  padding: 6px 0;
+  border-bottom: 1px solid #1c1917;
+  transition: opacity 0.2s ease;
+}
+
+.see-products-btn:hover {
+  opacity: 0.6;
+}
+
+/* 5. PRODUCT SIGNATURE SHOWCASE */
+.editorial-signature-section {
+  padding: 40px 48px 80px;
+}
+
+.editorial-signature-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  border-bottom: 1px solid #d4cebe;
+  padding-bottom: 16px;
+}
+
+.editorial-signature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.signature-card {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.signature-card-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 4px;
+  background-color: #d6d0c4;
+}
+
+.signature-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.signature-card:hover .signature-card-image img {
+  transform: scale(1.05);
+}
+
+.signature-hover-tag {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.92);
+  color: #1c1917;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  padding: 8px 16px;
+  border-radius: 2px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+.signature-card:hover .signature-hover-tag {
+  opacity: 1;
+}
+
+.signature-card-info {
+  margin-top: 14px;
+}
+
+.signature-card-info h5 {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #1c1917;
+  margin: 0 0 4px;
+  text-transform: uppercase;
+}
+
+.signature-card-info p {
+  font-size: 11px;
+  color: #78716c;
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+
+/* 6. GRAND DARK FOOTER */
+.editorial-footer {
+  background-color: #18181b;
+  color: #f4f4f5;
+  padding: 80px 48px 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.editorial-footer-top {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
+  margin-bottom: 80px;
+  position: relative;
+  z-index: 2;
+}
+
+.editorial-footer-brand-box {
+  max-width: 440px;
+}
+
+.footer-tagline-text {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #a1a1aa;
+  margin: 0 0 28px;
+}
+
+.footer-newsletter-form {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #3f3f46;
+  padding-bottom: 8px;
+}
+
+.footer-newsletter-form input {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 13px;
+  width: 100%;
+  outline: none;
+}
+
+.footer-newsletter-form input::placeholder {
+  color: #71717a;
+}
+
+.footer-newsletter-form button {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.editorial-footer-links-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.editorial-footer-links-grid h6 {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: #ffffff;
+  margin: 0 0 20px;
+}
+
+.editorial-footer-links-grid ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.editorial-footer-links-grid li {
+  font-size: 12px;
+  color: #a1a1aa;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.editorial-footer-links-grid li:hover {
+  color: #ffffff;
+}
+
+.editorial-footer-watermark {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  font-size: clamp(4rem, 13.5vw, 11rem);
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.08);
+  user-select: none;
+  pointer-events: none;
+  line-height: 0.85;
+  text-transform: uppercase;
+  margin-top: 40px;
+  font-family: 'Outfit', 'Inter', sans-serif;
+}
+
+/* RESPONSIVE DESIGN FOR EDITORIAL HOME */
+@media (max-width: 1024px) {
+  .editorial-hero {
+    padding: 24px;
+    height: 70vh;
+  }
+  .blueprint-track {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .editorial-spaces-grid {
+    grid-template-columns: 1fr;
+  }
+  .editorial-signature-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .editorial-footer-top {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 640px) {
+  .editorial-hero {
+    height: 60vh;
+    min-height: 440px;
+    padding: 16px;
+  }
+  .editorial-hero-nav {
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 10px;
+  }
+  .blueprint-category-strip,
+  .editorial-spaces-section,
+  .editorial-signature-section,
+  .editorial-announcement-section,
+  .editorial-footer {
+    padding: 32px 20px;
+  }
+  .blueprint-track {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .editorial-signature-grid {
+    grid-template-columns: 1fr;
+  }
+  .editorial-footer-links-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
