@@ -1,6 +1,28 @@
 // Hardware fittings catalogue data
 export const HARDWARE_MRP = 500;
 
+import karGurjanSilverImg from "../Plywood_images/KAR_Gurjan_Silver.png";
+import karGurjanGoldImg from "../Plywood_images/KAR_Gurjan_Gold.png";
+import karGurjanPlatinumImg from "../Plywood_images/KAR_Gurjan_Platinum.png";
+import austinClubStructuralImg from "../Plywood_images/Austin_Club_Structural.png";
+import austinGoldImg from "../Plywood_images/Austin_Gold_Plywood.png";
+import austinPlatinumPlusImg from "../Plywood_images/Austin_Platinum_Plus_Product.png";
+import wigwamContenderImg from "../Plywood_images/Wigwam_Contender.png";
+import wigwamClubPlusImg from "../Plywood_images/Wigwam_Club_Plus.png";
+import wigwamExcelImg from "../Plywood_images/Wigwam_Excel.png";
+import wigwamFabricateGoldImg from "../Plywood_images/Wigwam_Fabricate_Gold.png";
+import wigwamFabricateGoldMdpImg from "../Plywood_images/Wigwam_Fabricate_Gold_MDP_MR.png";
+import royaleTouchePerformanceImg from "../Plywood_images/Royal_Touche_Performance_Ply.png";
+import raintreeSuprimoImg from "../Plywood_images/Raintree_Suprimo_Plywood.png";
+import raintreeUltimoImg from "../Plywood_images/Raintree_Ultimo_Plywood_Only.png";
+import austinMarineImg from "../Plywood_images/Austin_Marine_BWP_Plywood.png";
+import austinFlexiPlyImg from "../Plywood_images/Austin_Flexi_Ply.png";
+import austinRoyaleImg from "../Plywood_images/Austin_Royale.png";
+import austinLincolnWaterproofImg from "../Plywood_images/Austin_Lincoln_Waterproof_Ply.png";
+import austinDefender2xImg from "../Plywood_images/Austin_Defender_2X.png";
+import austinLincolnMrImg from "../Plywood_images/Austin_Lincoln_MR_Plywood.png";
+import svWoodsNfcImg from "../Plywood_images/SV_Woods_NFC_Board.png";
+
 export type HwVariant = {
   brands: string[];
   sizes: string[];
@@ -266,7 +288,8 @@ export const PLYWOOD_BOARDS_PRODUCTS: HwBrandCard[] = [
     description: "Quality plywood suitable for furniture, interior projects, and everyday woodworking applications.",
     bestFor: ["Furniture", "Cabinets", "Shelves", "Wardrobes", "Interior Work"],
     stock: 25,
-    sku: "KAR-SLV-PLY"
+    sku: "KAR-SLV-PLY",
+    image: karGurjanSilverImg
   },
   {
     name: "KAR Gurjan Gold",
@@ -277,7 +300,8 @@ export const PLYWOOD_BOARDS_PRODUCTS: HwBrandCard[] = [
     description: "Premium plywood designed for furniture, interiors, and general woodworking applications.",
     bestFor: ["Furniture", "Wardrobes", "Kitchen Cabinets", "Interior Work", "Doors"],
     stock: 20,
-    sku: "KAR-GLD-PLY"
+    sku: "KAR-GLD-PLY",
+    image: karGurjanGoldImg
   },
   {
     name: "KAR Gurjan Platinum",
@@ -289,7 +313,8 @@ export const PLYWOOD_BOARDS_PRODUCTS: HwBrandCard[] = [
     bestFor: ["Kitchen Cabinets", "Wardrobes", "Furniture", "Doors", "Interior Work", "Moisture-prone Areas"],
     features: ["Waterproof Hardwood", "Moisture Resistance"],
     stock: 18,
-    sku: "KAR-PLT-PLY"
+    sku: "KAR-PLT-PLY",
+    image: karGurjanPlatinumImg
   },
   {
     name: "Austin Club Structural",
@@ -301,7 +326,8 @@ export const PLYWOOD_BOARDS_PRODUCTS: HwBrandCard[] = [
     bestFor: ["Furniture", "Construction", "Interiors", "Doors"],
     features: ["BWP Structural Grade"],
     stock: 15,
-    sku: "AUS-STR-PLY"
+    sku: "AUS-STR-PLY",
+    image: austinClubStructuralImg
   },
   {
     name: "Austin Gold",
@@ -313,7 +339,8 @@ export const PLYWOOD_BOARDS_PRODUCTS: HwBrandCard[] = [
     bestFor: ["Furniture", "Kitchens", "Wardrobes", "Doors", "Interiors"],
     warranty: "30 Years",
     stock: 30,
-    sku: "AUS-GLD-MAR"
+    sku: "AUS-GLD-MAR",
+    image: austinGoldImg
   },
   {
     name: "Austin Platinum Plus",
@@ -330,7 +357,8 @@ export const PLYWOOD_BOARDS_PRODUCTS: HwBrandCard[] = [
       "Anti-termite & Borer Protection"
     ],
     stock: 22,
-    sku: "AUS-PLT-PLS"
+    sku: "AUS-PLT-PLS",
+    image: austinPlatinumPlusImg
   },
   {
     name: "Wigwam Contender",
@@ -342,7 +370,8 @@ export const PLYWOOD_BOARDS_PRODUCTS: HwBrandCard[] = [
     bestFor: ["Furniture", "Kitchens", "Wardrobes", "Doors", "Interiors", "Commercial Spaces"],
     features: ["Fire-Retardant BWP Grade", "100% Hardwood Core"],
     stock: 16,
-    sku: "WIG-CON-FR"
+    sku: "WIG-CON-FR",
+    image: wigwamContenderImg
   },
   {
     name: "Wigwam Club Plus",
@@ -358,7 +387,8 @@ export const PLYWOOD_BOARDS_PRODUCTS: HwBrandCard[] = [
       "Termite & Microbe Protection"
     ],
     stock: 20,
-    sku: "WIG-CLB-PLS"
+    sku: "WIG-CLB-PLS",
+    image: wigwamClubPlusImg
   },
   {
     name: "Wigwam Excel",
@@ -374,7 +404,8 @@ export const PLYWOOD_BOARDS_PRODUCTS: HwBrandCard[] = [
       "Termite & Microbe Protection"
     ],
     stock: 25,
-    sku: "WIG-EXC-MAR"
+    sku: "WIG-EXC-MAR",
+    image: wigwamExcelImg
   },
   {
     name: "Wigwam Fabricate Gold",
@@ -386,7 +417,8 @@ export const PLYWOOD_BOARDS_PRODUCTS: HwBrandCard[] = [
     bestFor: ["Furniture", "Wardrobes", "Cabinets", "Doors", "Interiors"],
     features: ["Hardwood Core"],
     stock: 18,
-    sku: "WIG-FAB-BB"
+    sku: "WIG-FAB-BB",
+    image: wigwamFabricateGoldImg
   },
   {
     name: "Wigwam Fabricate Gold (MDP) MR",
@@ -398,7 +430,8 @@ export const PLYWOOD_BOARDS_PRODUCTS: HwBrandCard[] = [
     bestFor: ["Furniture", "Cabinets", "Wardrobes", "Shelves", "Interior Work"],
     features: ["MR Grade", "Calibrated Panel", "Medium-Density"],
     stock: 14,
-    sku: "WIG-FAB-MDP"
+    sku: "WIG-FAB-MDP",
+    image: wigwamFabricateGoldMdpImg
   },
   {
     name: "Royale Touche Performance Ply",
@@ -411,7 +444,8 @@ export const PLYWOOD_BOARDS_PRODUCTS: HwBrandCard[] = [
     features: ["Fire Retardant", "Lifetime Warranty", "Boiling Waterproof"],
     warranty: "Lifetime",
     stock: 28,
-    sku: "RTL-PRF-PLY"
+    sku: "RTL-PRF-PLY",
+    image: royaleTouchePerformanceImg
   },
   {
     name: "Raintree Suprimo",
@@ -423,7 +457,8 @@ export const PLYWOOD_BOARDS_PRODUCTS: HwBrandCard[] = [
     bestFor: ["Furniture", "Doors", "Wardrobes", "Interiors", "Premium Applications"],
     features: ["Gurjan Face Veneer", "Ultra High Performance"],
     stock: 15,
-    sku: "RNT-SUP-PLY"
+    sku: "RNT-SUP-PLY",
+    image: raintreeSuprimoImg
   },
   {
     name: "Raintree Ultimo",
@@ -435,7 +470,8 @@ export const PLYWOOD_BOARDS_PRODUCTS: HwBrandCard[] = [
     bestFor: ["Furniture", "Kitchens", "Doors", "Wardrobes", "Interiors", "Exterior Applications"],
     features: ["Fire-Retardant BWP", "Water Resistance", "Exterior & Interior Grade"],
     stock: 12,
-    sku: "RNT-ULT-PLY"
+    sku: "RNT-ULT-PLY",
+    image: raintreeUltimoImg
   },
   {
     name: "Austin Marine",
@@ -453,7 +489,8 @@ export const PLYWOOD_BOARDS_PRODUCTS: HwBrandCard[] = [
       "Anti-borer Protection"
     ],
     stock: 30,
-    sku: "AUS-MAR-BWP"
+    sku: "AUS-MAR-BWP",
+    image: austinMarineImg
   },
   {
     name: "Austin WPC Solid Door",
@@ -471,7 +508,8 @@ export const PLYWOOD_BOARDS_PRODUCTS: HwBrandCard[] = [
       "Easy Installation"
     ],
     stock: 10,
-    sku: "AUS-WPC-DOR"
+    sku: "AUS-WPC-DOR",
+    image: austinRoyaleImg
   },
   {
     name: "Austin Flexi Ply",
@@ -483,7 +521,8 @@ export const PLYWOOD_BOARDS_PRODUCTS: HwBrandCard[] = [
     bestFor: ["Curved Furniture", "Rounded Panels", "Columns", "Partitions", "Interior Designs"],
     features: ["Flexible & Bendable"],
     stock: 16,
-    sku: "AUS-FLX-PLY"
+    sku: "AUS-FLX-PLY",
+    image: austinFlexiPlyImg
   },
   {
     name: "Austin Royale",
@@ -502,7 +541,8 @@ export const PLYWOOD_BOARDS_PRODUCTS: HwBrandCard[] = [
     ],
     warranty: "30 Years",
     stock: 24,
-    sku: "AUS-ROY-PREM"
+    sku: "AUS-ROY-PREM",
+    image: austinRoyaleImg
   },
   {
     name: "Austin Lincoln 710",
@@ -520,7 +560,8 @@ export const PLYWOOD_BOARDS_PRODUCTS: HwBrandCard[] = [
     ],
     warranty: "15 Years",
     stock: 20,
-    sku: "AUS-LNC-710"
+    sku: "AUS-LNC-710",
+    image: austinLincolnWaterproofImg
   },
   {
     name: "Austin Defender 2X",
@@ -538,7 +579,8 @@ export const PLYWOOD_BOARDS_PRODUCTS: HwBrandCard[] = [
       "Anti-borer Protection"
     ],
     stock: 18,
-    sku: "AUS-DEF-2X"
+    sku: "AUS-DEF-2X",
+    image: austinDefender2xImg
   },
   {
     name: "Austin Lincoln MR",
@@ -556,7 +598,8 @@ export const PLYWOOD_BOARDS_PRODUCTS: HwBrandCard[] = [
       "Anti-borer Protection"
     ],
     stock: 22,
-    sku: "AUS-LNC-MR"
+    sku: "AUS-LNC-MR",
+    image: austinLincolnMrImg
   },
   {
     name: "SV Woods NFC Board",
@@ -578,7 +621,8 @@ export const PLYWOOD_BOARDS_PRODUCTS: HwBrandCard[] = [
     density: "600 kg/m³",
     guarantee: "Lifetime 200% Guarantee",
     stock: 15,
-    sku: "SVW-NFC-BRD"
+    sku: "SVW-NFC-BRD",
+    image: svWoodsNfcImg
   }
 ];
 
