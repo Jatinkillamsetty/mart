@@ -759,7 +759,7 @@ export function App() {
       </header>
 
       {/* 12 CORE CATEGORIES BAR */}
-      {userRole !== "admin" && (
+      {page !== "home" && userRole !== "admin" && (
         <nav className={`category-nav-bar ${mobileMenuOpen ? "mobile-open" : ""}`}>
           <div className="category-nav-scroll">
             <button
