@@ -1,4 +1,4 @@
-import { FormEvent, useEffect, useMemo, useState } from "react";
+import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import { User } from "@supabase/supabase-js";
 import { supabase } from "./lib/supabaseClient";
 import glassProduct from "./assets/glass-product.jpg";
