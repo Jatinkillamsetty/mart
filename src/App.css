@@ -3474,56 +3474,58 @@ a {
 .kar-header-logo {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   background: transparent;
   border: none;
   cursor: pointer;
-  padding: 0;
+  padding: 4px 0;
   text-align: left;
 }
 
 .kar-badge-box {
-  width: 44px;
-  height: 44px;
-  background: #d32f2f;
+  width: 48px;
+  height: 48px;
+  background: #e12525;
   color: #ffffff;
   font-weight: 900;
-  font-size: 18px;
+  font-size: 21px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 6px;
-  letter-spacing: 0.5px;
-  box-shadow: 0 2px 8px rgba(211, 47, 47, 0.3);
-  font-family: 'Inter', system-ui, sans-serif;
+  border-radius: 10px;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 14px rgba(225, 37, 37, 0.3);
+  font-family: 'Outfit', 'Inter', system-ui, sans-serif;
   flex-shrink: 0;
 }
 
 .kar-text-group {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  gap: 3px;
 }
 
 .kar-company-name {
-  font-size: 16px;
+  font-size: 22px;
   font-weight: 900;
-  letter-spacing: 2px;
-  color: #111827;
-  line-height: 1.1;
+  letter-spacing: 1.5px;
+  color: #e12525;
+  line-height: 1;
   font-family: 'Outfit', 'Inter', sans-serif;
 }
 
 .red-accent {
-  color: #d32f2f;
+  color: #e12525;
 }
 
 .kar-mart-name {
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 800;
-  letter-spacing: 2px;
-  color: #4b5563;
-  margin-top: 1px;
-  font-family: 'Inter', sans-serif;
+  letter-spacing: 2.5px;
+  color: #e12525;
+  line-height: 1;
+  font-family: 'Outfit', 'Inter', sans-serif;
 }
 
 .kar-trust-strip {
