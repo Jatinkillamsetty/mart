@@ -643,7 +643,7 @@ export function App() {
         >
           <div className="kar-badge-box">KAR</div>
           <div className="kar-text-group">
-            <span className="kar-company-name">KANDAKATLA <span className="red-accent">A</span>RJUN RAO</span>
+            <span className="kar-company-name">KAR</span>
             <span className="kar-mart-name">GLASS MART</span>
           </div>
         </button>
@@ -866,7 +866,7 @@ export function App() {
                 Bespoke architectural woodwork, certified glass fittings, tough glass & solid timber panels designed for modern spaces.
               </p>
               <h1 className="editorial-hero-title">
-                KANDAKATLA ARJUN RAO <br />
+                KAR <br />
                 <span className="hero-subbrand">GLASS MART</span>
               </h1>
             </div>
@@ -1150,7 +1150,7 @@ export function App() {
             </div>
 
             <div className="editorial-footer-watermark">
-              KANDAKATLA ARJUN RAO GLASS MART
+              KAR GLASS MART
             </div>
           </footer>
         </main>
