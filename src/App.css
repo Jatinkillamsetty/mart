@@ -3470,4 +3470,119 @@ a {
   }
 }
 
+/* KANDAKATLA ARJUN RAO GLASS MART HEADER LOGO & TRUST BADGES STYLES */
+.kar-header-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+}
+
+.kar-badge-box {
+  width: 44px;
+  height: 44px;
+  background: #d32f2f;
+  color: #ffffff;
+  font-weight: 900;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(211, 47, 47, 0.3);
+  font-family: 'Inter', system-ui, sans-serif;
+  flex-shrink: 0;
+}
+
+.kar-text-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.kar-company-name {
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.8px;
+  color: #111827;
+  line-height: 1.1;
+  font-family: 'Outfit', 'Inter', sans-serif;
+}
+
+.red-accent {
+  color: #d32f2f;
+}
+
+.kar-mart-name {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #4b5563;
+  margin-top: 1px;
+  font-family: 'Inter', sans-serif;
+}
+
+.kar-trust-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  padding: 24px 5%;
+  background: #0f172a;
+  color: #ffffff;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+}
+
+.trust-icon {
+  font-size: 24px;
+}
+
+.trust-text h4 {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  margin: 0 0 2px 0;
+}
+
+.trust-text p {
+  font-size: 11px;
+  color: #94a3b8;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .kar-trust-strip {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+}
+
+@media (max-width: 550px) {
+  .kar-trust-strip {
+    grid-template-columns: 1fr;
+  }
+  .kar-company-name {
+    font-size: 11px;
+  }
+  .kar-mart-name {
+    font-size: 10px;
+  }
+}
+
+
 

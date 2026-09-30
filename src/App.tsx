@@ -151,7 +151,7 @@ export function App() {
 
   // Location Modal
   const [selectedLocation, setSelectedLocation] = useState(
-    () => localStorage.getItem("glassmart-location") || "Select your location"
+    () => localStorage.getItem("glassmart-location") || "Industrial Estate, Warangal, Telangana"
   );
   const [showLocation, setShowLocation] = useState(false);
   const [locationText, setLocationText] = useState("");
@@ -638,11 +638,14 @@ export function App() {
       {/* HEADER NAVBAR */}
       <header className="navbar">
         <button
-          className="logo"
+          className="logo kar-header-logo"
           onClick={() => navigate(userRole === "admin" ? "admin" : "home")}
         >
-          <span>GLASS</span>MART
-          <small>HARDWARE & ARCHITECTURAL SUPPLIES</small>
+          <div className="kar-badge-box">KAR</div>
+          <div className="kar-text-group">
+            <span className="kar-company-name">KANDAKATLA <span className="red-accent">A</span>RJUN RAO</span>
+            <span className="kar-mart-name">GLASS MART</span>
+          </div>
         </button>
 
         {userRole !== "admin" && (
@@ -860,9 +863,12 @@ export function App() {
             {/* HERO CONTENT */}
             <div className="editorial-hero-content">
               <p className="editorial-hero-subtitle">
-                Bespoke architectural woodwork, certified glass fittings, and solid timber panels designed and crafted for modern spaces.
+                Bespoke architectural woodwork, certified glass fittings, tough glass & solid timber panels designed for modern spaces.
               </p>
-              <h1 className="editorial-hero-title">GLASSMART</h1>
+              <h1 className="editorial-hero-title">
+                KANDAKATLA ARJUN RAO <br />
+                <span className="hero-subbrand">GLASS MART</span>
+              </h1>
             </div>
           </section>
 
@@ -1029,6 +1035,38 @@ export function App() {
             </div>
           </section>
 
+          {/* TRUST BADGES STRIP FROM STORE DISPLAY */}
+          <section className="kar-trust-strip">
+            <div className="trust-item">
+              <span className="trust-icon">🏅</span>
+              <div>
+                <strong>PREMIUM QUALITY PRODUCTS</strong>
+                <small>100% Genuine Certified Hardware & Ply</small>
+              </div>
+            </div>
+            <div className="trust-item">
+              <span className="trust-icon">👨‍💼</span>
+              <div>
+                <strong>EXPERT ADVICE</strong>
+                <small>Blueprints, Cutouts & Technical Support</small>
+              </div>
+            </div>
+            <div className="trust-item">
+              <span className="trust-icon">🚚</span>
+              <div>
+                <strong>TIMELY DELIVERY & AFTER SALES</strong>
+                <small>Direct Showroom & Site Dispatch</small>
+              </div>
+            </div>
+            <div className="trust-item">
+              <span className="trust-icon">⭐</span>
+              <div>
+                <strong>TRUSTED BY THOUSANDS</strong>
+                <small>Architects, Builders & Homeowners</small>
+              </div>
+            </div>
+          </section>
+
           {/* BRAND SHOWCASE & BRAND STORIES SECTION */}
           <section className="storefront-section brand-showcase-section" id="brand-showcase">
             <div className="section-heading">
@@ -1071,7 +1109,8 @@ export function App() {
             <div className="editorial-footer-top">
               <div className="editorial-footer-brand-box">
                 <p className="footer-tagline-text">
-                  Bringing timeless aesthetics and certified engineering comfort to your home, office, and architectural workspace.
+                  Display Centre: #D-14/A, Industrial Estate, Mulugu Road, Warangal, Telangana. <br />
+                  Bringing certified engineering comfort and premium architectural timber to your workspace.
                 </p>
                 <div className="footer-newsletter-form">
                   <input type="email" placeholder="Enter your email address..." />
@@ -1111,7 +1150,7 @@ export function App() {
             </div>
 
             <div className="editorial-footer-watermark">
-              GLASSMART
+              KANDAKATLA ARJUN RAO GLASS MART
             </div>
           </footer>
         </main>
@@ -2025,9 +2064,9 @@ export function App() {
     {page === "contact" && (
         <main className="page-container">
           <div className="page-title">
-            <p className="eyebrow">CONTACT GLASS MART</p>
+            <p className="eyebrow">CONTACT KANDAKATLA ARJUN RAO GLASS MART</p>
             <h1>Get in Touch</h1>
-            <p>Reach our technical hardware team for product specs, orders, and support.</p>
+            <p>Reach our technical hardware and architectural glass team for product specs, bulk orders, and support.</p>
           </div>
 
           <div className="contact-grid">
@@ -2035,21 +2074,21 @@ export function App() {
               <span className="contact-icon">📞</span>
               <p className="eyebrow">CUSTOMER SUPPORT</p>
               <h2>+91 98765 43210</h2>
-              <p>Mon - Sat, 9:00 AM - 7:00 PM</p>
+              <p>Mon - Sat, 9:00 AM - 8:00 PM</p>
             </div>
 
             <div className="contact-card">
               <span className="contact-icon">✉️</span>
               <p className="eyebrow">EMAIL SUPPORT</p>
-              <h2>support@glassmart.in</h2>
-              <p>For order queries & technical datasheets</p>
+              <h2>support@kar-glassmart.in</h2>
+              <p>For architectural quotes & technical specs</p>
             </div>
 
             <div className="contact-card">
               <span className="contact-icon">🏬</span>
-              <p className="eyebrow">MAIN HARDWARE MART</p>
-              <h2>Glass Mart Hardware Depot</h2>
-              <p>Commercial Hardware Market, India</p>
+              <p className="eyebrow">DISPLAY CENTRE</p>
+              <h2>KANDAKATLA ARJUN RAO GLASS MART</h2>
+              <p>#D-14/A, Industrial Estate, Mulugu Road, Warangal, Telangana.</p>
             </div>
           </div>
         </main>
