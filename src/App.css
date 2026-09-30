@@ -3591,5 +3591,270 @@ a {
   }
 }
 
+/* HORIZONTAL SCROLLING BRAND MARQUEE STYLES */
+.brand-showcase-section {
+  padding: 56px 6%;
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.brand-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 32px;
+}
+
+.brand-section-header h2 {
+  font-size: 32px;
+  font-weight: 900;
+  color: #0f172a;
+  margin: 4px 0 8px;
+}
+
+.brand-section-header p:not(.eyebrow) {
+  font-size: 15px;
+  color: #64748b;
+  margin: 0;
+}
+
+.brand-scroll-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.brand-scroll-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  color: #1e293b;
+  font-size: 22px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.brand-scroll-btn:hover {
+  background: #0f172a;
+  color: #ffffff;
+  border-color: #0f172a;
+  transform: translateY(-1px);
+}
+
+.brand-scroll-track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 10px 4px 24px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-behavior: smooth;
+}
+
+.brand-scroll-track::-webkit-scrollbar {
+  display: none;
+}
+
+.brand-scroll-card {
+  flex: 0 0 290px;
+  scroll-snap-align: start;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-scroll-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 32px rgba(15, 23, 42, 0.12);
+  border-color: #cbd5e1;
+}
+
+/* BRAND LOGO PLATES (AUTHENTIC BRAND BRANDING MATCHING STORE PHOTO) */
+.brand-plate {
+  height: 105px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  border-bottom: 2px solid #e2e8f0;
+  position: relative;
+}
+
+/* WIGWAM */
+.brand-plate-wigwam { background: #333333; }
+.logo-box-wigwam { text-align: center; color: #f59e0b; }
+.wigwam-mark { font-size: 14px; font-weight: 900; letter-spacing: 2px; }
+.wigwam-title { font-size: 20px; font-weight: 900; letter-spacing: 1.5px; margin: 2px 0 1px; color: #fbbf24; }
+.wigwam-sub { font-size: 9px; font-weight: 800; letter-spacing: 1.5px; color: #d1d5db; }
+
+/* ROYALE TOUCHE */
+.brand-plate-royale-touche { background: #ffffff; }
+.logo-box-royale { text-align: center; color: #1e3a8a; }
+.royale-crest { font-size: 20px; margin-bottom: 2px; }
+.royale-title { font-size: 18px; font-weight: 900; letter-spacing: 1.5px; font-family: 'Times New Roman', serif; }
+.royale-sub { font-size: 8.5px; font-weight: 700; letter-spacing: 1.2px; color: #64748b; }
+
+/* AUSTIN PLYWOOD */
+.brand-plate-austin { background: #e12525; }
+.logo-box-austin { text-align: center; color: #ffffff; }
+.austin-title { font-size: 22px; font-weight: 900; letter-spacing: 1.5px; font-family: 'Outfit', sans-serif; }
+.austin-sub { font-size: 12px; font-weight: 900; letter-spacing: 3px; }
+
+/* RAINTREE PLYWOOD */
+.brand-plate-raintree { background: #ffffff; }
+.logo-box-raintree { text-align: center; color: #15803d; }
+.raintree-arch { font-size: 10px; color: #16a34a; letter-spacing: 2px; }
+.raintree-title { font-size: 17px; font-weight: 900; color: #111827; letter-spacing: 0.5px; margin: 2px 0; }
+.raintree-sub { font-size: 11px; font-style: italic; font-weight: 700; color: #15803d; }
+
+/* NEOLAXE */
+.brand-plate-neolaxe { background: #0b0f19; }
+.logo-box-neolaxe { text-align: center; color: #ffffff; }
+.neolaxe-arc { font-size: 12px; color: #ef4444; }
+.neolaxe-title { font-size: 22px; font-weight: 800; letter-spacing: 0.5px; font-family: sans-serif; }
+.neolaxe-sub { font-size: 11px; font-weight: 600; letter-spacing: 2px; color: #94a3b8; }
+
+/* TREELAM */
+.brand-plate-treelam { background: #ffffff; }
+.logo-box-treelam { text-align: center; color: #166534; }
+.treelam-leaf { font-size: 18px; margin-bottom: 2px; }
+.treelam-title { font-size: 20px; font-weight: 900; color: #111827; }
+.treelam-sub { font-size: 9.5px; font-style: italic; color: #4b5563; }
+
+/* SLEEK */
+.brand-plate-sleek { background: #ffffff; }
+.logo-box-sleek { text-align: center; color: #dc2626; }
+.sleek-title { font-size: 24px; font-weight: 900; font-family: sans-serif; letter-spacing: 1px; color: #e12525; }
+.sleek-sub { font-size: 8px; font-weight: 900; letter-spacing: 1.5px; color: #1e3a8a; margin-top: 2px; }
+
+/* GODREJ */
+.brand-plate-godrej { background: #ffffff; }
+.logo-box-godrej { text-align: center; color: #7e22ce; }
+.godrej-title { font-size: 18px; font-weight: 900; letter-spacing: 0.5px; }
+.godrej-sub { font-size: 8.5px; font-weight: 800; letter-spacing: 1px; color: #475569; margin-top: 2px; }
+
+/* HETTICH */
+.brand-plate-hettich { background: #ffffff; }
+.logo-box-hettich { text-align: center; color: #111827; }
+.hettich-stripes { font-size: 16px; margin-bottom: 2px; }
+.hettich-title { font-size: 24px; font-weight: 900; letter-spacing: -0.5px; font-family: sans-serif; }
+
+/* SIMOR */
+.brand-plate-simor { background: #ffffff; }
+.logo-box-simor { text-align: center; color: #0284c7; }
+.simor-badge { font-size: 20px; font-weight: 900; color: #0369a1; letter-spacing: 1px; }
+.simor-sub { font-size: 8.5px; font-weight: 800; letter-spacing: 1px; color: #64748b; }
+
+/* YALE */
+.brand-plate-yale { background: #ffffff; }
+.logo-box-yale { text-align: center; }
+.yale-pill { background: #facc15; color: #000000; font-size: 20px; font-weight: 900; padding: 6px 24px; border-radius: 20px; display: inline-block; box-shadow: 0 2px 6px rgba(234, 179, 8, 0.4); }
+
+/* NIMMI */
+.brand-plate-nimmi { background: #451a03; }
+.logo-box-nimmi { text-align: center; color: #f59e0b; }
+.nimmi-title { font-size: 22px; font-weight: 900; letter-spacing: 1.5px; color: #fbbf24; }
+.nimmi-sub { font-size: 9.5px; font-weight: 700; color: #fde68a; }
+
+/* JYOTHI */
+.brand-plate-jyoti { background: #ffffff; }
+.logo-box-jyoti { text-align: center; color: #1e293b; }
+.jyoti-mark { font-size: 18px; margin-bottom: 2px; }
+.jyoti-title { font-size: 19px; font-weight: 900; letter-spacing: 1px; }
+.jyoti-sub { font-size: 9.5px; font-weight: 700; color: #b45309; }
+
+/* TAITON */
+.brand-plate-taiton { background: #ffffff; }
+.logo-box-taiton { text-align: center; color: #0369a1; }
+.taiton-mark { font-size: 16px; }
+.taiton-title { font-size: 20px; font-weight: 900; letter-spacing: 1px; margin: 2px 0 1px; }
+.taiton-sub { font-size: 8.5px; font-weight: 700; color: #64748b; }
+
+/* SAINT-GOBAIN */
+.brand-plate-saint-gobain { background: #ffffff; }
+.logo-box-saint-gobain { text-align: center; color: #0284c7; }
+.saint-mark { font-size: 18px; margin-bottom: 2px; }
+.saint-title { font-size: 18px; font-weight: 900; letter-spacing: 1.5px; color: #0369a1; }
+
+/* NEW MIKA */
+.brand-plate-new-mika { background: #ffffff; }
+.logo-box-new-mika { text-align: center; color: #1e293b; }
+.mika-mark { font-size: 18px; }
+.mika-title { font-size: 20px; font-weight: 900; letter-spacing: 1px; margin: 2px 0 1px; }
+.mika-sub { font-size: 8.5px; font-weight: 700; color: #65a30d; }
+
+/* CARD FOOTER INFO */
+.brand-scroll-info {
+  padding: 16px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.brand-info-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.brand-info-top strong {
+  font-size: 15px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.brand-badge-mini {
+  font-size: 10px;
+  font-weight: 800;
+  color: #ffffff;
+  padding: 3px 8px;
+  border-radius: 12px;
+  white-space: nowrap;
+}
+
+.brand-spec-pill {
+  font-size: 12px;
+  color: #475569;
+  line-height: 1.45;
+  margin: 0 0 12px;
+}
+
+.brand-action-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 800;
+  color: #e12525;
+  padding-top: 8px;
+  border-top: 1px dashed #e2e8f0;
+}
+
+.brand-arrow-icon {
+  font-size: 14px;
+  transition: transform 0.2s ease;
+}
+
+.brand-scroll-card:hover .brand-arrow-icon {
+  transform: translateX(3px) translateY(-2px);
+}
+
 
 

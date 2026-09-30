@@ -124,6 +124,130 @@ function KarOfficialLogo({ height = 52, darkTheme = false }: { height?: number; 
   );
 }
 
+function BrandLogoCardItem({ brand, onClick }: { brand: BrandDetail; onClick: () => void }) {
+  return (
+    <div className="brand-scroll-card" onClick={onClick} title={`Explore ${brand.name}`}>
+      <div className={`brand-plate brand-plate-${brand.id}`}>
+        {brand.id === "wigwam" && (
+          <div className="logo-box-wigwam">
+            <div className="wigwam-mark">▲▼</div>
+            <div className="wigwam-title">WIGWAM®</div>
+            <div className="wigwam-sub">PLY AS IT SHOULD BE</div>
+          </div>
+        )}
+        {brand.id === "royale-touche" && (
+          <div className="logo-box-royale">
+            <div className="royale-crest">🛡️</div>
+            <div className="royale-title">ROYALÉ TOUCHÉ</div>
+            <div className="royale-sub">LUXURY LAMINATES | PLYWOOD</div>
+          </div>
+        )}
+        {brand.id === "austin" && (
+          <div className="logo-box-austin">
+            <div className="austin-title">AUSTIN®</div>
+            <div className="austin-sub">PLYWOOD</div>
+          </div>
+        )}
+        {brand.id === "raintree" && (
+          <div className="logo-box-raintree">
+            <div className="raintree-arch">🟩🟩🟩</div>
+            <div className="raintree-title">RAINTREE® PLYWOOD</div>
+            <div className="raintree-sub">Sirf Shandaar !</div>
+          </div>
+        )}
+        {brand.id === "neolaxe" && (
+          <div className="logo-box-neolaxe">
+            <div className="neolaxe-arc">⭕</div>
+            <div className="neolaxe-title">Neolaxe</div>
+            <div className="neolaxe-sub">laminate</div>
+          </div>
+        )}
+        {brand.id === "treelam" && (
+          <div className="logo-box-treelam">
+            <div className="treelam-leaf">🍃</div>
+            <div className="treelam-title">Treelam®</div>
+            <div className="treelam-sub">Elegantly Classy...</div>
+          </div>
+        )}
+        {brand.id === "sleek" && (
+          <div className="logo-box-sleek">
+            <div className="sleek-title">Sleek</div>
+            <div className="sleek-sub">KITCHENS BY ASIAN PAINTS</div>
+          </div>
+        )}
+        {brand.id === "godrej" && (
+          <div className="logo-box-godrej">
+            <div className="godrej-title">Godrej | LOCKS</div>
+            <div className="godrej-sub">THINK SAFETY, THINK GODREJ.</div>
+          </div>
+        )}
+        {brand.id === "hettich" && (
+          <div className="logo-box-hettich">
+            <div className="hettich-stripes">🚩🚩</div>
+            <div className="hettich-title">Hettich</div>
+          </div>
+        )}
+        {brand.id === "simor" && (
+          <div className="logo-box-simor">
+            <div className="simor-badge">SIMOR®</div>
+            <div className="simor-sub">HARDWARE FITTINGS</div>
+          </div>
+        )}
+        {brand.id === "yale" && (
+          <div className="logo-box-yale">
+            <div className="yale-pill">Yale</div>
+          </div>
+        )}
+        {brand.id === "nimmi" && (
+          <div className="logo-box-nimmi">
+            <div className="nimmi-title">NIMMI®</div>
+            <div className="nimmi-sub">The Art of Hardware</div>
+          </div>
+        )}
+        {brand.id === "jyoti" && (
+          <div className="logo-box-jyoti">
+            <div className="jyoti-mark">🪔</div>
+            <div className="jyoti-title">JYOTHI®</div>
+            <div className="jyoti-sub">Brass Metals</div>
+          </div>
+        )}
+        {brand.id === "taiton" && (
+          <div className="logo-box-taiton">
+            <div className="taiton-mark">🏔️</div>
+            <div className="taiton-title">TAITON™</div>
+            <div className="taiton-sub">Architectural Hardware</div>
+          </div>
+        )}
+        {brand.id === "saint-gobain" && (
+          <div className="logo-box-saint-gobain">
+            <div className="saint-mark">🏙️</div>
+            <div className="saint-title">SAINT-GOBAIN</div>
+          </div>
+        )}
+        {brand.id === "new-mika" && (
+          <div className="logo-box-new-mika">
+            <div className="mika-mark">🦚</div>
+            <div className="mika-title">NEW MIKA</div>
+            <div className="mika-sub">Decorative Laminates</div>
+          </div>
+        )}
+      </div>
+
+      <div className="brand-scroll-info">
+        <div className="brand-info-top">
+          <strong>{brand.name}</strong>
+          <span className="brand-badge-mini" style={{ backgroundColor: brand.color }}>{brand.badge}</span>
+        </div>
+        <p className="brand-spec-pill">{brand.specialty}</p>
+        <div className="brand-action-row">
+          <span>Shop Collection</span>
+          <span className="brand-arrow-icon">↗</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 type CartItem = {
   id: string;
   name: string;
@@ -215,6 +339,7 @@ export function App() {
   const [sortBy, setSortBy] = useState<"featured" | "price-asc" | "price-desc" | "brand">("featured");
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const brandScrollRef = useRef<HTMLDivElement>(null);
 
   // Active Selected Product Details
   const [activeItem, setActiveItem] = useState<HwBrandCard | null>(null);
@@ -1140,39 +1265,54 @@ export function App() {
             </div>
           </section>
 
-          {/* BRAND SHOWCASE & BRAND STORIES SECTION */}
+          {/* BRAND SHOWCASE - HORIZONTAL SCROLLING BRAND MARQUEE */}
           <section className="storefront-section brand-showcase-section" id="brand-showcase">
-            <div className="section-heading">
-              <p className="eyebrow">OUR AUTHORIZED BRAND PARTNERS</p>
-              <h2>World-Class Brands Under One Roof</h2>
-              <p>Click any brand to explore their specialized story, engineering legacy, and hardware catalogue.</p>
+            <div className="brand-section-header">
+              <div>
+                <p className="eyebrow">OUR AUTHORIZED BRAND PARTNERS</p>
+                <h2>World-Class Brands Under One Roof</h2>
+                <p>Scroll horizontally or click any brand logo to explore their authentic products.</p>
+              </div>
+              <div className="brand-scroll-controls">
+                <button
+                  type="button"
+                  className="brand-scroll-btn"
+                  onClick={() => {
+                    if (brandScrollRef.current) {
+                      brandScrollRef.current.scrollBy({ left: -340, behavior: "smooth" });
+                    }
+                  }}
+                  title="Scroll left"
+                  aria-label="Scroll Left"
+                >
+                  ‹
+                </button>
+                <button
+                  type="button"
+                  className="brand-scroll-btn"
+                  onClick={() => {
+                    if (brandScrollRef.current) {
+                      brandScrollRef.current.scrollBy({ left: 340, behavior: "smooth" });
+                    }
+                  }}
+                  title="Scroll right"
+                  aria-label="Scroll Right"
+                >
+                  ›
+                </button>
+              </div>
             </div>
 
-            <div className="brand-cards-grid">
+            <div className="brand-scroll-track" ref={brandScrollRef}>
               {BRAND_DETAILS.map((brand: BrandDetail) => (
-                <div className="brand-spotlight-card" key={brand.id} style={{ borderTopColor: brand.color }}>
-                  <div className="brand-card-header">
-                    <div>
-                      <span className="brand-country">{brand.country}</span>
-                      <h3>{brand.name}</h3>
-                    </div>
-                    <span className="brand-badge" style={{ backgroundColor: brand.color }}>{brand.badge}</span>
-                  </div>
-                  <p className="brand-tagline">{brand.tagline}</p>
-                  <p className="brand-story-text">{brand.story}</p>
-                  <div className="brand-specialty-pill">
-                    <strong>Specialty:</strong> {brand.specialty}
-                  </div>
-                  <button
-                    className="primary-btn brand-shop-btn"
-                    onClick={() => {
-                      setSelectedBrand(brand.name.split("/")[0].trim());
-                      navigate("products");
-                    }}
-                  >
-                    Shop {brand.name} Hardware →
-                  </button>
-                </div>
+                <BrandLogoCardItem
+                  key={brand.id}
+                  brand={brand}
+                  onClick={() => {
+                    setSelectedBrand(brand.name.split("/")[0].trim());
+                    navigate("products");
+                  }}
+                />
               ))}
             </div>
           </section>
