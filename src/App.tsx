@@ -7,6 +7,7 @@ import {
   hardwareGroups,
   getBrandCards,
   getAllHardwareCards,
+  PLYWOOD_BOARDS_PRODUCTS,
   CORE_CATEGORIES,
   ALL_BRANDS,
   ALL_MATERIALS,
@@ -123,6 +124,7 @@ export function App() {
 
   // Filter State for Product Catalog
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedSubcategory, setSelectedSubcategory] = useState("All");
   const [selectedBrand, setSelectedBrand] = useState("All");
   const [selectedSize, setSelectedSize] = useState("All");
   const [selectedMaterial, setSelectedMaterial] = useState("All");
@@ -253,76 +255,135 @@ export function App() {
   // All Product Cards derived from catalog
   const allCatalogCards: HwBrandCard[] = useMemo(() => {
     const list: HwBrandCard[] = [];
-    hardwareCatalog.forEach(g => {
-      g.categories.forEach(c => {
-        getBrandCards(c, g.name).forEach(b => list.push(b));
+    if (hardwareCatalog.length > 0) {
+      hardwareCatalog.forEach(g => {
+        g.categories.forEach(c => {
+          getBrandCards(c, g.name).forEach(b => list.push(b));
+        });
       });
-    });
-    return list;
+    }
+    const baseCards = list.length > 0 ? list : getAllHardwareCards();
+    const missingPlywood = PLYWOOD_BOARDS_PRODUCTS.filter(
+      p => !baseCards.some(b => (b.sku && b.sku === p.sku) || (b.name && b.name === p.name))
+    );
+    return [...baseCards, ...missingPlywood];
   }, [hardwareCatalog]);
+
+  const availableSubcategories = useMemo(() => {
+    const set = new Set<string>();
+    allCatalogCards.forEach(item => {
+      if (item.subcategory) {
+        if (selectedCategory === "All") {
+          set.add(item.subcategory);
+        } else {
+          const catObj = CORE_CATEGORIES.find(
+            c => c.id === selectedCategory || c.name.toLowerCase() === selectedCategory.toLowerCase()
+          );
+          const matchName = catObj ? catObj.name.toLowerCase() : selectedCategory.toLowerCase();
+          if (
+            item.categoryName.toLowerCase().includes(matchName) ||
+            matchName.includes(item.categoryName.toLowerCase())
+          ) {
+            set.add(item.subcategory);
+          }
+        }
+      }
+    });
+    return Array.from(set);
+  }, [allCatalogCards, selectedCategory]);
 
   // Filtered Cards
   const filteredCatalogCards = useMemo(() => {
-    return allCatalogCards.filter(item => {
-      // Search
-      if (searchQuery.trim()) {
-        const q = searchQuery.toLowerCase().trim();
-        const terms = q.split(/\s+/).filter(Boolean);
-        const text = [
-          item.brand,
-          item.categoryName,
-          item.groupName,
-          ...(item.sizes || []),
-          ...(item.materials || []),
-          ...(item.finishes || []),
-        ]
-          .join(" ")
-          .toLowerCase();
-        if (!terms.every(term => text.includes(term))) return false;
-      }
+    return allCatalogCards
+      .filter(item => {
+        // Search
+        if (searchQuery.trim()) {
+          const q = searchQuery.toLowerCase().trim();
+          const terms = q.split(/\s+/).filter(Boolean);
+          const text = [
+            item.name || "",
+            item.brand,
+            item.categoryName,
+            item.subcategory || "",
+            item.groupName,
+            item.description || "",
+            ...(item.bestFor || []),
+            ...(item.features || []),
+            ...(item.sizes || []),
+            ...(item.materials || []),
+            ...(item.finishes || []),
+          ]
+            .join(" ")
+            .toLowerCase();
+          if (!terms.every(term => text.includes(term))) return false;
+        }
 
-      // Category filter
-      if (selectedCategory !== "All") {
-        const catObj = CORE_CATEGORIES.find(c => c.id === selectedCategory || c.name.toLowerCase() === selectedCategory.toLowerCase());
-        const matchName = catObj ? catObj.name.toLowerCase() : selectedCategory.toLowerCase();
-        if (!item.categoryName.toLowerCase().includes(matchName) && !matchName.includes(item.categoryName.toLowerCase())) {
+        // Category filter
+        if (selectedCategory !== "All") {
+          const catObj = CORE_CATEGORIES.find(
+            c => c.id === selectedCategory || c.name.toLowerCase() === selectedCategory.toLowerCase()
+          );
+          const matchName = catObj ? catObj.name.toLowerCase() : selectedCategory.toLowerCase();
+          if (
+            !item.categoryName.toLowerCase().includes(matchName) &&
+            !matchName.includes(item.categoryName.toLowerCase())
+          ) {
+            return false;
+          }
+        }
+
+        // Subcategory filter
+        if (selectedSubcategory !== "All") {
+          if (!item.subcategory || item.subcategory.toLowerCase() !== selectedSubcategory.toLowerCase()) {
+            return false;
+          }
+        }
+
+        // Brand filter
+        if (selectedBrand !== "All" && item.brand.toLowerCase() !== selectedBrand.toLowerCase()) {
           return false;
         }
-      }
 
-      // Brand filter
-      if (selectedBrand !== "All" && item.brand.toLowerCase() !== selectedBrand.toLowerCase()) {
-        return false;
-      }
+        // Size filter
+        if (selectedSize !== "All" && !item.sizes?.includes(selectedSize)) {
+          return false;
+        }
 
-      // Size filter
-      if (selectedSize !== "All" && !item.sizes?.includes(selectedSize)) {
-        return false;
-      }
+        // Material filter
+        if (selectedMaterial !== "All" && !item.materials?.some(m => m.toLowerCase().includes(selectedMaterial.toLowerCase()))) {
+          return false;
+        }
 
-      // Material filter
-      if (selectedMaterial !== "All" && !item.materials?.some(m => m.toLowerCase().includes(selectedMaterial.toLowerCase()))) {
-        return false;
-      }
+        // Finish filter
+        if (selectedFinish !== "All" && !item.finishes?.some(f => f.toLowerCase().includes(selectedFinish.toLowerCase()))) {
+          return false;
+        }
 
-      // Finish filter
-      if (selectedFinish !== "All" && !item.finishes?.some(f => f.toLowerCase().includes(selectedFinish.toLowerCase()))) {
-        return false;
-      }
+        // Stock filter
+        if (inStockOnly && item.stock <= 0) {
+          return false;
+        }
 
-      // Stock filter
-      if (inStockOnly && item.stock <= 0) {
-        return false;
-      }
-
-      return true;
-    }).sort((a, b) => {
-      if (sortBy === "price-asc") return (a.price || HARDWARE_MRP) - (b.price || HARDWARE_MRP);
-      if (sortBy === "price-desc") return (b.price || HARDWARE_MRP) - (a.price || HARDWARE_MRP);
-      if (sortBy === "brand") return a.brand.localeCompare(b.brand);
-      return 0; // featured
-    });
-  }, [allCatalogCards, searchQuery, selectedCategory, selectedBrand, selectedSize, selectedMaterial, selectedFinish, inStockOnly, sortBy]);
+        return true;
+      })
+      .sort((a, b) => {
+        if (sortBy === "price-asc") return (a.price || 0) - (b.price || 0);
+        if (sortBy === "price-desc") return (b.price || 0) - (a.price || 0);
+        if (sortBy === "brand") return a.brand.localeCompare(b.brand);
+        return 0; // featured
+      });
+  }, [
+    allCatalogCards,
+    searchQuery,
+    selectedCategory,
+    selectedSubcategory,
+    selectedBrand,
+    selectedSize,
+    selectedMaterial,
+    selectedFinish,
+    inStockOnly,
+    sortBy,
+  ]);
 
   // Search Autocomplete Suggestions
   const searchSuggestions = useMemo(() => {
@@ -1168,20 +1229,41 @@ export function App() {
                           </button>
                           <div className="product-card-image">
                             {item.image ? (
-                              <img src={item.image} alt={item.brand} />
+                              <img src={item.image} alt={item.name || item.brand} />
                             ) : (
-                              <span className="placeholder-icon">⚙️</span>
+                              <span className="placeholder-icon">
+                                {item.categoryName === "Doors" ? "🚪" : item.categoryName.includes("Plywood") || item.categoryName.includes("Board") ? "🪵" : "⚙️"}
+                              </span>
                             )}
                           </div>
                         </div>
 
                         <div className="product-info">
-                          <p className="product-category">{item.categoryName}</p>
+                          <div className="product-category-row">
+                            <span className="product-category">{item.categoryName}</span>
+                            {item.subcategory && (
+                              <span className="chip chip-subcategory">{item.subcategory}</span>
+                            )}
+                          </div>
+
                           <h3 onClick={() => openProductDetail(item)}>
-                            {item.brand} {item.categoryName}
+                            {item.name || `${item.brand} ${item.categoryName}`}
                           </h3>
 
+                          {item.description && (
+                            <p className="product-short-desc">{item.description}</p>
+                          )}
+
                           <div className="variant-badges">
+                            {item.warranty && (
+                              <span className="chip chip-warranty">🛡️ {item.warranty} Warranty</span>
+                            )}
+                            {item.guarantee && (
+                              <span className="chip chip-guarantee">⭐ {item.guarantee}</span>
+                            )}
+                            {item.density && (
+                              <span className="chip chip-density">📐 {item.density}</span>
+                            )}
                             {item.sizes?.map(s => (
                               <span key={s} className="chip chip-size">
                                 {s}
@@ -1194,8 +1276,22 @@ export function App() {
                             ))}
                           </div>
 
+                          {item.bestFor && item.bestFor.length > 0 && (
+                            <div className="card-best-for">
+                              <small className="best-for-label">Best For:</small>
+                              <div className="best-for-mini-chips">
+                                {item.bestFor.slice(0, 3).map(b => (
+                                  <span key={b} className="mini-chip">{b}</span>
+                                ))}
+                                {item.bestFor.length > 3 && (
+                                  <span className="mini-chip count-more">+{item.bestFor.length - 3}</span>
+                                )}
+                              </div>
+                            </div>
+                          )}
+
                           <div className="product-pricing">
-                            <strong>{money(item.price || HARDWARE_MRP)}</strong>
+                            <strong>{item.price ? money(item.price) : "Quote on Request"}</strong>
                             <span className={item.stock > 0 ? "stock-in" : "stock-out"}>
                               {item.stock > 0 ? "✓ In Stock" : "Out of Stock"}
                             </span>
@@ -1239,11 +1335,13 @@ export function App() {
             <div className="pdp-gallery">
               <div className="pdp-main-image">
                 {activeItem.image ? (
-                  <img src={activeItem.image} alt={activeItem.brand} />
+                  <img src={activeItem.image} alt={activeItem.name || activeItem.brand} />
                 ) : (
                   <div className="pdp-placeholder">
-                    <span>⚙️</span>
-                    <p>{activeItem.brand} {activeItem.categoryName}</p>
+                    <span className="pdp-placeholder-icon">
+                      {activeItem.categoryName === "Doors" ? "🚪" : activeItem.categoryName.includes("Plywood") || activeItem.categoryName.includes("Board") ? "🪵" : "⚙️"}
+                    </span>
+                    <p>{activeItem.name || `${activeItem.brand} ${activeItem.categoryName}`}</p>
                   </div>
                 )}
               </div>
@@ -1251,12 +1349,58 @@ export function App() {
 
             {/* PRODUCT DETAILS & VARIANT SELECTOR */}
             <div className="pdp-info">
-              <span className="pdp-brand">{activeItem.brand}</span>
-              <h1>{activeItem.brand} {activeItem.categoryName}</h1>
+              <div className="pdp-meta-top">
+                <span className="pdp-brand">{activeItem.brand}</span>
+                <span className="pdp-category-chip">{activeItem.categoryName}</span>
+                {activeItem.subcategory && (
+                  <span className="pdp-subcategory-chip">{activeItem.subcategory}</span>
+                )}
+              </div>
+
+              <h1>{activeItem.name || `${activeItem.brand} ${activeItem.categoryName}`}</h1>
               <p className="pdp-sku">SKU: {activeItem.sku || "GM-HW-101"}</p>
 
+              {activeItem.description && (
+                <p className="pdp-description">{activeItem.description}</p>
+              )}
+
+              {/* Warranty / Guarantee / Density Badges */}
+              {(activeItem.warranty || activeItem.guarantee || activeItem.density) && (
+                <div className="pdp-highlights">
+                  {activeItem.warranty && (
+                    <div className="highlight-badge warranty-badge">
+                      <span className="highlight-icon">🛡️</span>
+                      <div>
+                        <strong>Warranty</strong>
+                        <p>{activeItem.warranty}</p>
+                      </div>
+                    </div>
+                  )}
+                  {activeItem.guarantee && (
+                    <div className="highlight-badge guarantee-badge">
+                      <span className="highlight-icon">⭐</span>
+                      <div>
+                        <strong>Guarantee</strong>
+                        <p>{activeItem.guarantee}</p>
+                      </div>
+                    </div>
+                  )}
+                  {activeItem.density && (
+                    <div className="highlight-badge density-badge">
+                      <span className="highlight-icon">📐</span>
+                      <div>
+                        <strong>Density</strong>
+                        <p>{activeItem.density}</p>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
+
               <div className="pdp-price-row">
-                <span className="pdp-price">{money(activeItem.price || HARDWARE_MRP)}</span>
+                <span className="pdp-price">
+                  {activeItem.price ? money(activeItem.price) : "Quote on Request"}
+                </span>
                 <span
                   className={
                     getItemStock(activeItem, selectedItemOptions) > 0
@@ -1269,6 +1413,32 @@ export function App() {
                     : "Out of Stock"}
                 </span>
               </div>
+
+              {/* BEST FOR */}
+              {activeItem.bestFor && activeItem.bestFor.length > 0 && (
+                <div className="pdp-section">
+                  <label className="pdp-section-label">BEST FOR</label>
+                  <div className="pdp-tags-wrap">
+                    {activeItem.bestFor.map(item => (
+                      <span key={item} className="pdp-tag">✓ {item}</span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* FEATURES & SPECIFICATIONS */}
+              {activeItem.features && activeItem.features.length > 0 && (
+                <div className="pdp-section">
+                  <label className="pdp-section-label">KEY FEATURES & SPECIFICATIONS</label>
+                  <ul className="pdp-features-list">
+                    {activeItem.features.map(f => (
+                      <li key={f}>
+                        <span className="bullet">✔</span> {f}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
 
               {/* VARIANT SELECTORS */}
               <div className="pdp-variants">
@@ -1376,9 +1546,13 @@ export function App() {
 
               {/* SPECIFICATIONS */}
               <div className="pdp-specs">
-                <h3>Product Specifications</h3>
+                <h3>Technical Specifications</h3>
                 <table>
                   <tbody>
+                    <tr>
+                      <th>Product Name</th>
+                      <td>{activeItem.name || `${activeItem.brand} ${activeItem.categoryName}`}</td>
+                    </tr>
                     <tr>
                       <th>Brand</th>
                       <td>{activeItem.brand}</td>
@@ -1387,22 +1561,48 @@ export function App() {
                       <th>Category</th>
                       <td>{activeItem.categoryName}</td>
                     </tr>
-                    <tr>
-                      <th>Group</th>
-                      <td>{activeItem.groupName}</td>
-                    </tr>
-                    <tr>
-                      <th>Available Sizes</th>
-                      <td>{activeItem.sizes?.join(", ") || "Standard"}</td>
-                    </tr>
-                    <tr>
-                      <th>Material</th>
-                      <td>{activeItem.materials?.join(", ") || "Standard Alloy"}</td>
-                    </tr>
-                    <tr>
-                      <th>Finish Options</th>
-                      <td>{activeItem.finishes?.join(", ") || "Standard"}</td>
-                    </tr>
+                    {activeItem.subcategory && (
+                      <tr>
+                        <th>Subcategory</th>
+                        <td>{activeItem.subcategory}</td>
+                      </tr>
+                    )}
+                    {activeItem.density && (
+                      <tr>
+                        <th>Density</th>
+                        <td>{activeItem.density}</td>
+                      </tr>
+                    )}
+                    {activeItem.warranty && (
+                      <tr>
+                        <th>Warranty</th>
+                        <td>{activeItem.warranty}</td>
+                      </tr>
+                    )}
+                    {activeItem.guarantee && (
+                      <tr>
+                        <th>Guarantee</th>
+                        <td>{activeItem.guarantee}</td>
+                      </tr>
+                    )}
+                    {activeItem.sizes?.length ? (
+                      <tr>
+                        <th>Available Sizes</th>
+                        <td>{activeItem.sizes.join(", ")}</td>
+                      </tr>
+                    ) : null}
+                    {activeItem.materials?.length ? (
+                      <tr>
+                        <th>Material</th>
+                        <td>{activeItem.materials.join(", ")}</td>
+                      </tr>
+                    ) : null}
+                    {activeItem.finishes?.length ? (
+                      <tr>
+                        <th>Finish Options</th>
+                        <td>{activeItem.finishes.join(", ")}</td>
+                      </tr>
+                    ) : null}
                   </tbody>
                 </table>
               </div>

@@ -27,10 +27,18 @@ export type HwGroup = {
 };
 
 export type HwBrandCard = {
+  name?: string;
   categoryName: string;
+  subcategory?: string;
   groupName: string;
   brand: string;
-  sizes: string[];
+  description?: string;
+  bestFor?: string[];
+  features?: string[];
+  warranty?: string;
+  guarantee?: string;
+  density?: string;
+  sizes?: string[];
   materials?: string[];
   finishes?: string[];
   image?: string;
@@ -52,12 +60,66 @@ export type CategoryCardMeta = {
 export const CORE_CATEGORIES: CategoryCardMeta[] = [
   {
     id: "All",
-    name: "All Hardware",
+    name: "All Products",
     code: "CAT-001",
     badge: "FULL RANGE",
-    countText: "134 Products",
+    countText: "156 Products",
     icon: "🧰",
-    description: "Complete master collection of architectural hardware fixtures and structural fittings.",
+    description: "Complete master collection of architectural hardware, plywood, doors, and structural boards.",
+  },
+  {
+    id: "plywood",
+    name: "Plywood",
+    code: "CAT-014",
+    badge: "BOILING WATERPROOF",
+    countText: "14 Items",
+    icon: "🪵",
+    description: "BWP, Marine Grade, Fire Retardant & Premium Plywood panels.",
+  },
+  {
+    id: "block-board",
+    name: "Block Board",
+    code: "CAT-015",
+    badge: "HARDWOOD CORE",
+    countText: "1 Item",
+    icon: "🪵",
+    description: "Solid hardwood-core block boards for durable furniture & doors.",
+  },
+  {
+    id: "mdp-boards",
+    name: "MDP / Boards",
+    code: "CAT-016",
+    badge: "CALIBRATED",
+    countText: "1 Item",
+    icon: "📐",
+    description: "Medium-density moisture-resistant grade panels and boards.",
+  },
+  {
+    id: "doors",
+    name: "Doors",
+    code: "CAT-017",
+    badge: "WPC SOLID",
+    countText: "1 Item",
+    icon: "🚪",
+    description: "Termite & UV resistant solid WPC doors for interior & main entry.",
+  },
+  {
+    id: "flexible-plywood",
+    name: "Flexible Plywood",
+    code: "CAT-018",
+    badge: "FLEXIBLE",
+    countText: "1 Item",
+    icon: "🔄",
+    description: "Bendable flexi ply for curved furniture, rounded panels & columns.",
+  },
+  {
+    id: "nfc-boards",
+    name: "NFC Boards",
+    code: "CAT-019",
+    badge: "100% WATERPROOF",
+    countText: "1 Item",
+    icon: "🛡️",
+    description: "High-density NFC boards with lifetime 200% waterproof guarantee.",
   },
   {
     id: "hinges",
@@ -170,9 +232,13 @@ export const CORE_CATEGORIES: CategoryCardMeta[] = [
 ];
 
 export const ALL_BRANDS = [
-  "Jyothi",
   "KAR",
-  "Jai Shankar",
+  "Austin",
+  "Wigwam",
+  "Royale Touche",
+  "Raintree",
+  "SV Woods",
+  "Jyothi",
   "Ebco",
   "Simor",
   "Duster",
@@ -186,6 +252,358 @@ export const ALL_BRANDS = [
   "Kolin",
   "Curio",
 ];
+
+export const PLYWOOD_BOARDS_PRODUCTS: HwBrandCard[] = [
+  {
+    name: "KAR Gurjan Silver",
+    brand: "KAR",
+    categoryName: "Plywood",
+    subcategory: "Quality Plywood",
+    groupName: "Plywood & Panels",
+    description: "Quality plywood suitable for furniture, interior projects, and everyday woodworking applications.",
+    bestFor: ["Furniture", "Cabinets", "Shelves", "Wardrobes", "Interior Work"],
+    stock: 25,
+    sku: "KAR-SLV-PLY"
+  },
+  {
+    name: "KAR Gurjan Gold",
+    brand: "KAR",
+    categoryName: "Plywood",
+    subcategory: "Premium Plywood",
+    groupName: "Plywood & Panels",
+    description: "Premium plywood designed for furniture, interiors, and general woodworking applications.",
+    bestFor: ["Furniture", "Wardrobes", "Kitchen Cabinets", "Interior Work", "Doors"],
+    stock: 20,
+    sku: "KAR-GLD-PLY"
+  },
+  {
+    name: "KAR Gurjan Platinum",
+    brand: "KAR",
+    categoryName: "Plywood",
+    subcategory: "Waterproof Hardwood Plywood",
+    groupName: "Plywood & Panels",
+    description: "Waterproof hardwood plywood designed for durable furniture, interiors, and applications where moisture resistance is important.",
+    bestFor: ["Kitchen Cabinets", "Wardrobes", "Furniture", "Doors", "Interior Work", "Moisture-prone Areas"],
+    features: ["Waterproof Hardwood", "Moisture Resistance"],
+    stock: 18,
+    sku: "KAR-PLT-PLY"
+  },
+  {
+    name: "Austin Club Structural",
+    brand: "Austin",
+    categoryName: "Plywood",
+    subcategory: "BWP Structural Plywood",
+    groupName: "Plywood & Panels",
+    description: "BWP structural plywood designed for strong and reliable furniture, interior, and construction applications.",
+    bestFor: ["Furniture", "Construction", "Interiors", "Doors"],
+    features: ["BWP Structural Grade"],
+    stock: 15,
+    sku: "AUS-STR-PLY"
+  },
+  {
+    name: "Austin Gold",
+    brand: "Austin",
+    categoryName: "Plywood",
+    subcategory: "Marine Grade Plywood",
+    groupName: "Plywood & Panels",
+    description: "Marine-grade plywood designed for durable furniture and interior applications, with a 30-year warranty. A practical choice where long-term durability and moisture resistance are important.",
+    bestFor: ["Furniture", "Kitchens", "Wardrobes", "Doors", "Interiors"],
+    warranty: "30 Years",
+    stock: 30,
+    sku: "AUS-GLD-MAR"
+  },
+  {
+    name: "Austin Platinum Plus",
+    brand: "Austin",
+    categoryName: "Plywood",
+    subcategory: "Premium BWP Plywood",
+    groupName: "Plywood & Panels",
+    description: "Premium BWP plywood with double-side calibrated construction, quadruple pressing, E0 emission level, and anti-termite & borer protection.",
+    bestFor: ["Furniture", "Kitchens", "Wardrobes", "Doors", "Interiors"],
+    features: [
+      "Double-side Calibrated Construction",
+      "Quadruple Pressing",
+      "E0 Emission Level",
+      "Anti-termite & Borer Protection"
+    ],
+    stock: 22,
+    sku: "AUS-PLT-PLS"
+  },
+  {
+    name: "Wigwam Contender",
+    brand: "Wigwam",
+    categoryName: "Plywood",
+    subcategory: "Fire Retardant BWP Grade Plywood",
+    groupName: "Plywood & Panels",
+    description: "Fire-retardant BWP plywood made with 100% hardwood, designed for durable furniture, interiors, and applications requiring enhanced fire resistance.",
+    bestFor: ["Furniture", "Kitchens", "Wardrobes", "Doors", "Interiors", "Commercial Spaces"],
+    features: ["Fire-Retardant BWP Grade", "100% Hardwood Core"],
+    stock: 16,
+    sku: "WIG-CON-FR"
+  },
+  {
+    name: "Wigwam Club Plus",
+    brand: "Wigwam",
+    categoryName: "Plywood",
+    subcategory: "Marine Grade BWP Plywood",
+    groupName: "Plywood & Panels",
+    description: "Marine-grade BWP plywood with both-side calibrated construction, designed for durable furniture and interior applications with moisture resistance and protection against termites and microbes.",
+    bestFor: ["Kitchens", "Furniture", "Wardrobes", "Doors", "Interiors", "Moisture-prone Areas"],
+    features: [
+      "Both-side Calibrated Construction",
+      "Marine Grade BWP",
+      "Termite & Microbe Protection"
+    ],
+    stock: 20,
+    sku: "WIG-CLB-PLS"
+  },
+  {
+    name: "Wigwam Excel",
+    brand: "Wigwam",
+    categoryName: "Plywood",
+    subcategory: "Marine Grade BWP Plywood",
+    groupName: "Plywood & Panels",
+    description: "Marine-grade BWP plywood with calibrated construction, designed for durable furniture and interior applications with moisture resistance and protection against termites and microbes.",
+    bestFor: ["Kitchens", "Furniture", "Wardrobes", "Doors", "Interiors", "Moisture-prone Areas"],
+    features: [
+      "Calibrated Construction",
+      "Marine Grade BWP",
+      "Termite & Microbe Protection"
+    ],
+    stock: 25,
+    sku: "WIG-EXC-MAR"
+  },
+  {
+    name: "Wigwam Fabricate Gold",
+    brand: "Wigwam",
+    categoryName: "Block Board",
+    subcategory: "Hardwood-Core Block Board",
+    groupName: "Block Boards & Wood Panels",
+    description: "Hardwood-core block board designed for furniture and interior applications, offering a stable and durable panel for everyday woodworking needs.",
+    bestFor: ["Furniture", "Wardrobes", "Cabinets", "Doors", "Interiors"],
+    features: ["Hardwood Core"],
+    stock: 18,
+    sku: "WIG-FAB-BB"
+  },
+  {
+    name: "Wigwam Fabricate Gold (MDP) MR",
+    brand: "Wigwam",
+    categoryName: "MDP / Boards",
+    subcategory: "MR Grade MDP Plywood",
+    groupName: "Boards & MDP Panels",
+    description: "Medium-density MR grade plywood made with a calibrated panel, designed for furniture and interior applications where a smooth and reliable panel is required.",
+    bestFor: ["Furniture", "Cabinets", "Wardrobes", "Shelves", "Interior Work"],
+    features: ["MR Grade", "Calibrated Panel", "Medium-Density"],
+    stock: 14,
+    sku: "WIG-FAB-MDP"
+  },
+  {
+    name: "Royale Touche Performance Ply",
+    brand: "Royale Touche",
+    categoryName: "Plywood",
+    subcategory: "Fire Retardant / BWP Plywood",
+    groupName: "Plywood & Panels",
+    description: "High-performance plywood designed for durable furniture and interior applications, offering fire-retardant properties and boiling-water resistance.",
+    bestFor: ["Kitchens", "Furniture", "Wardrobes", "Doors", "Interiors", "Moisture-prone Areas"],
+    features: ["Fire Retardant", "Lifetime Warranty", "Boiling Waterproof"],
+    warranty: "Lifetime",
+    stock: 28,
+    sku: "RTL-PRF-PLY"
+  },
+  {
+    name: "Raintree Suprimo",
+    brand: "Raintree",
+    categoryName: "Plywood",
+    subcategory: "Ultra High Performance Plywood",
+    groupName: "Plywood & Panels",
+    description: "High-performance plywood featuring a Gurjan face, designed for durable furniture, doors, and interior applications.",
+    bestFor: ["Furniture", "Doors", "Wardrobes", "Interiors", "Premium Applications"],
+    features: ["Gurjan Face Veneer", "Ultra High Performance"],
+    stock: 15,
+    sku: "RNT-SUP-PLY"
+  },
+  {
+    name: "Raintree Ultimo",
+    brand: "Raintree",
+    categoryName: "Plywood",
+    subcategory: "Fire-Retardant BWP Plywood",
+    groupName: "Plywood & Panels",
+    description: "Premium plywood designed for demanding interior and exterior applications, offering fire-retardant performance, water resistance, and long-lasting durability.",
+    bestFor: ["Furniture", "Kitchens", "Doors", "Wardrobes", "Interiors", "Exterior Applications"],
+    features: ["Fire-Retardant BWP", "Water Resistance", "Exterior & Interior Grade"],
+    stock: 12,
+    sku: "RNT-ULT-PLY"
+  },
+  {
+    name: "Austin Marine",
+    brand: "Austin",
+    categoryName: "Plywood",
+    subcategory: "Marine Grade BWP Plywood",
+    groupName: "Plywood & Panels",
+    description: "Marine-grade BWP plywood designed for durable furniture and interior applications, featuring E0 emission level, double-side calibration, quadruple pressing, and protection against termites and borers.",
+    bestFor: ["Kitchens", "Furniture", "Wardrobes", "Doors", "Interiors", "Moisture-prone Areas"],
+    features: [
+      "E0 Emission Level",
+      "Double-side Calibration",
+      "Quadruple Pressing",
+      "Anti-termite Protection",
+      "Anti-borer Protection"
+    ],
+    stock: 30,
+    sku: "AUS-MAR-BWP"
+  },
+  {
+    name: "Austin WPC Solid Door",
+    brand: "Austin",
+    categoryName: "Doors",
+    subcategory: "WPC Solid Door",
+    groupName: "Doors & Shutters",
+    description: "High-durability WPC solid door designed for easy installation and low maintenance, with termite resistance, UV resistance, and high screw-holding capacity.",
+    bestFor: ["Main Doors", "Interior Doors", "Bathrooms", "Commercial Spaces", "Residential Projects"],
+    features: [
+      "Termite Resistant",
+      "UV Resistant",
+      "High Screw-holding Capacity",
+      "Low Maintenance",
+      "Easy Installation"
+    ],
+    stock: 10,
+    sku: "AUS-WPC-DOR"
+  },
+  {
+    name: "Austin Flexi Ply",
+    brand: "Austin",
+    categoryName: "Flexible Plywood",
+    subcategory: "Flexible Plywood",
+    groupName: "Flexible Panels",
+    description: "Flexible plywood designed to bend and curve easily, making it ideal for curved furniture, rounded surfaces, columns, partitions, and creative interior designs.",
+    bestFor: ["Curved Furniture", "Rounded Panels", "Columns", "Partitions", "Interior Designs"],
+    features: ["Flexible & Bendable"],
+    stock: 16,
+    sku: "AUS-FLX-PLY"
+  },
+  {
+    name: "Austin Royale",
+    brand: "Austin",
+    categoryName: "Plywood",
+    subcategory: "Premium Plywood",
+    groupName: "Plywood & Panels",
+    description: "Premium plywood designed for durable furniture and interior applications, featuring E0 emission level, quadruple pressing, double-side calibration, anti-termite & borer protection, and a 30-year warranty.",
+    bestFor: ["Furniture", "Kitchens", "Wardrobes", "Doors", "Interiors"],
+    features: [
+      "E0 Emission Level",
+      "Quadruple Pressing",
+      "Double-side Calibration",
+      "Anti-termite Protection",
+      "Anti-borer Protection"
+    ],
+    warranty: "30 Years",
+    stock: 24,
+    sku: "AUS-ROY-PREM"
+  },
+  {
+    name: "Austin Lincoln 710",
+    brand: "Austin",
+    categoryName: "Plywood",
+    subcategory: "Waterproof Plywood",
+    groupName: "Plywood & Panels",
+    description: "Waterproof plywood designed for durable furniture and interior applications, featuring E0 emission level, water and borer protection, and double-side calibration.",
+    bestFor: ["Furniture", "Kitchens", "Wardrobes", "Doors", "Interiors", "Moisture-prone Areas"],
+    features: [
+      "E0 Emission Level",
+      "Water Protection",
+      "Borer Protection",
+      "Double-side Calibration"
+    ],
+    warranty: "15 Years",
+    stock: 20,
+    sku: "AUS-LNC-710"
+  },
+  {
+    name: "Austin Defender 2X",
+    brand: "Austin",
+    categoryName: "Plywood",
+    subcategory: "Premium Plywood",
+    groupName: "Plywood & Panels",
+    description: "High-performance plywood designed for durable furniture and interior applications, featuring E0 emission level, quadruple pressing, double-side calibration, and anti-termite & borer protection.",
+    bestFor: ["Furniture", "Kitchens", "Wardrobes", "Doors", "Interiors"],
+    features: [
+      "E0 Emission Level",
+      "Quadruple Pressing",
+      "Double-side Calibration",
+      "Anti-termite Protection",
+      "Anti-borer Protection"
+    ],
+    stock: 18,
+    sku: "AUS-DEF-2X"
+  },
+  {
+    name: "Austin Lincoln MR",
+    brand: "Austin",
+    categoryName: "Plywood",
+    subcategory: "MR Grade Plywood",
+    groupName: "Plywood & Panels",
+    description: "MR grade plywood designed for reliable furniture and interior applications, featuring E0 emission level, quadruple pressing, double-side calibration, and anti-termite & borer protection.",
+    bestFor: ["Furniture", "Kitchens", "Wardrobes", "Doors", "Interior Work"],
+    features: [
+      "E0 Emission Level",
+      "Quadruple Pressing",
+      "Double-side Calibration",
+      "Anti-termite Protection",
+      "Anti-borer Protection"
+    ],
+    stock: 22,
+    sku: "AUS-LNC-MR"
+  },
+  {
+    name: "SV Woods NFC Board",
+    brand: "SV Woods",
+    categoryName: "NFC Boards",
+    subcategory: "High Density NFC Board",
+    groupName: "NFC Boards & Frames",
+    description: "High-density NFC board designed for frames, boards, doors, and interior applications. It offers 100% waterproof performance, termite resistance, fire-retardant properties, high screw-holding capacity, and a paintable, polishable, and pastable surface.",
+    bestFor: ["Door Frames", "Doors", "Furniture", "Interior Applications", "Boards"],
+    features: [
+      "100% Waterproof",
+      "Termite Resistant",
+      "Fire Retardant",
+      "High Screw-holding Capacity",
+      "Paintable",
+      "Polishable",
+      "Pastable"
+    ],
+    density: "600 kg/m³",
+    guarantee: "Lifetime 200% Guarantee",
+    stock: 15,
+    sku: "SVW-NFC-BRD"
+  }
+];
+
+export function getAllHardwareCards(): HwBrandCard[] {
+  const cards: HwBrandCard[] = [...PLYWOOD_BOARDS_PRODUCTS];
+  hardwareGroups.forEach(group => {
+    group.categories.forEach(category => {
+      category.variants.forEach(variant => {
+        variant.brands.forEach(brand => {
+          cards.push({
+            name: `${brand} ${category.name}`,
+            categoryName: category.name,
+            groupName: group.name,
+            brand,
+            sizes: variant.sizes,
+            materials: variant.materials,
+            finishes: variant.finishes,
+            image: variant.image,
+            stock: variant.stock ?? 10,
+            sku: `GM-${brand.substring(0, 3).toUpperCase()}-${category.id.substring(0, 3).toUpperCase()}`,
+            price: HARDWARE_MRP,
+          });
+        });
+      });
+    });
+  });
+  return cards;
+}
 
 export const ALL_MATERIALS = [
   "Stainless Steel",
@@ -338,30 +756,7 @@ export const hardwareGroups: HwGroup[] = [
   },
 ];
 
-export function getAllHardwareCards(): HwBrandCard[] {
-  const cards: HwBrandCard[] = [];
-  hardwareGroups.forEach(group => {
-    group.categories.forEach(category => {
-      category.variants.forEach(variant => {
-        variant.brands.forEach(brand => {
-          cards.push({
-            categoryName: category.name,
-            groupName: group.name,
-            brand,
-            sizes: variant.sizes,
-            materials: variant.materials,
-            finishes: variant.finishes,
-            image: variant.image,
-            stock: variant.stock ?? 10,
-            sku: `GM-${brand.substring(0, 3).toUpperCase()}-${category.id.substring(0, 3).toUpperCase()}`,
-            price: HARDWARE_MRP,
-          });
-        });
-      });
-    });
-  });
-  return cards;
-}
+
 
 export function getBrandCards(category: HwCategory, groupName: string = "Hardware"): HwBrandCard[] {
   const cards: HwBrandCard[] = [];

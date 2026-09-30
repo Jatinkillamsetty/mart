@@ -181,6 +181,79 @@ export function CategoryGraphic({ id }: { id: string }) {
           </g>
         </svg>
       );
+    case "plywood":
+      return (
+        <svg viewBox="0 0 200 140" fill="none" xmlns="http://www.w3.org/2000/svg" className="cat-graphic-svg">
+          <rect width="200" height="140" rx="16" fill="#FEF3C7" />
+          <g transform="translate(30, 30)">
+            <rect x="0" y="0" width="140" height="80" rx="6" fill="#D97706" stroke="#92400E" strokeWidth="2" />
+            <line x1="0" y1="20" x2="140" y2="20" stroke="#F59E0B" strokeWidth="2" />
+            <line x1="0" y1="40" x2="140" y2="40" stroke="#F59E0B" strokeWidth="2" />
+            <line x1="0" y1="60" x2="140" y2="60" stroke="#F59E0B" strokeWidth="2" />
+            <path d="M20 10 Q 70 25 120 10" stroke="#B45309" strokeWidth="1.5" fill="none" />
+            <path d="M10 50 Q 70 65 130 50" stroke="#B45309" strokeWidth="1.5" fill="none" />
+          </g>
+        </svg>
+      );
+    case "block-board":
+      return (
+        <svg viewBox="0 0 200 140" fill="none" xmlns="http://www.w3.org/2000/svg" className="cat-graphic-svg">
+          <rect width="200" height="140" rx="16" fill="#FDF6B2" />
+          <g transform="translate(25, 35)">
+            <rect x="0" y="0" width="150" height="70" rx="4" fill="#B45309" stroke="#78350F" strokeWidth="2" />
+            <rect x="10" y="10" width="25" height="50" fill="#D97706" rx="2" />
+            <rect x="40" y="10" width="25" height="50" fill="#F59E0B" rx="2" />
+            <rect x="70" y="10" width="25" height="50" fill="#D97706" rx="2" />
+            <rect x="100" y="10" width="25" height="50" fill="#F59E0B" rx="2" />
+          </g>
+        </svg>
+      );
+    case "mdp-boards":
+      return (
+        <svg viewBox="0 0 200 140" fill="none" xmlns="http://www.w3.org/2000/svg" className="cat-graphic-svg">
+          <rect width="200" height="140" rx="16" fill="#F3E8FF" />
+          <g transform="translate(30, 30)">
+            <rect x="0" y="0" width="140" height="80" rx="8" fill="#7E22CE" stroke="#581C87" strokeWidth="2" />
+            <rect x="15" y="15" width="110" height="50" rx="4" fill="#A855F7" opacity="0.6" />
+            <circle cx="70" cy="40" r="15" fill="#E9D5FF" opacity="0.8" />
+          </g>
+        </svg>
+      );
+    case "doors":
+      return (
+        <svg viewBox="0 0 200 140" fill="none" xmlns="http://www.w3.org/2000/svg" className="cat-graphic-svg">
+          <rect width="200" height="140" rx="16" fill="#E0F2FE" />
+          <g transform="translate(60, 20)">
+            <rect x="0" y="0" width="80" height="100" rx="6" fill="#0284C7" stroke="#0369A1" strokeWidth="2" />
+            <rect x="10" y="10" width="28" height="38" rx="3" fill="#38BDF8" opacity="0.6" />
+            <rect x="42" y="10" width="28" height="38" rx="3" fill="#38BDF8" opacity="0.6" />
+            <rect x="10" y="54" width="28" height="38" rx="3" fill="#38BDF8" opacity="0.6" />
+            <rect x="42" y="54" width="28" height="38" rx="3" fill="#38BDF8" opacity="0.6" />
+            <circle cx="68" cy="50" r="4" fill="#FACC15" />
+          </g>
+        </svg>
+      );
+    case "flexible-plywood":
+      return (
+        <svg viewBox="0 0 200 140" fill="none" xmlns="http://www.w3.org/2000/svg" className="cat-graphic-svg">
+          <rect width="200" height="140" rx="16" fill="#DCFCE7" />
+          <g transform="translate(30, 25)">
+            <path d="M10 70 Q 70 0 130 70" stroke="#16A34A" strokeWidth="12" fill="none" strokeLinecap="round" />
+            <path d="M10 85 Q 70 15 130 85" stroke="#22C55E" strokeWidth="8" fill="none" strokeLinecap="round" />
+          </g>
+        </svg>
+      );
+    case "nfc-boards":
+      return (
+        <svg viewBox="0 0 200 140" fill="none" xmlns="http://www.w3.org/2000/svg" className="cat-graphic-svg">
+          <rect width="200" height="140" rx="16" fill="#EFF6FF" />
+          <g transform="translate(45, 25)">
+            <rect x="0" y="0" width="110" height="90" rx="8" fill="#1D4ED8" stroke="#1E40AF" strokeWidth="2" />
+            <path d="M55 20 L80 45 L55 70 L30 45 Z" fill="#60A5FA" />
+            <circle cx="55" cy="45" r="10" fill="#DBEAFE" />
+          </g>
+        </svg>
+      );
     default:
       return (
         <svg viewBox="0 0 200 140" fill="none" xmlns="http://www.w3.org/2000/svg" className="cat-graphic-svg">
