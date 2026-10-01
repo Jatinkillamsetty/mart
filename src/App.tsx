@@ -124,6 +124,74 @@ function KarOfficialLogo({ height = 52, darkTheme = false }: { height?: number; 
   );
 }
 
+function WishlistClipboardIcon({ width = 24, height = 28, color = "#0f172a" }: { width?: number; height?: number; color?: string }) {
+  return (
+    <svg
+      width={width}
+      height={height}
+      viewBox="0 0 72 88"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      style={{ display: "block" }}
+    >
+      {/* Outer rounded card outline */}
+      <rect
+        x="5"
+        y="5"
+        width="62"
+        height="78"
+        rx="14"
+        fill="none"
+        stroke={color}
+        strokeWidth="6"
+      />
+      {/* Top handle / slot */}
+      <rect
+        x="24"
+        y="10"
+        width="24"
+        height="6"
+        rx="3"
+        fill="none"
+        stroke={color}
+        strokeWidth="4.5"
+      />
+      {/* Row 1: Checkmark & Line */}
+      <path
+        d="M 18 28 L 24 35 L 34 23"
+        fill="none"
+        stroke={color}
+        strokeWidth="5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <line x1="40" y1="29" x2="56" y2="29" stroke={color} strokeWidth="5" strokeLinecap="round" />
+
+      {/* Row 2: Checkmark & Line */}
+      <path
+        d="M 18 46 L 24 53 L 34 41"
+        fill="none"
+        stroke={color}
+        strokeWidth="5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <line x1="40" y1="47" x2="56" y2="47" stroke={color} strokeWidth="5" strokeLinecap="round" />
+
+      {/* Row 3: Checkmark & Line */}
+      <path
+        d="M 18 64 L 24 71 L 34 59"
+        fill="none"
+        stroke={color}
+        strokeWidth="5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <line x1="40" y1="65" x2="56" y2="65" stroke={color} strokeWidth="5" strokeLinecap="round" />
+    </svg>
+  );
+}
+
 function BrandLogoCardItem({ brand, onClick }: { brand: BrandDetail; onClick: () => void }) {
   return (
     <div className="brand-scroll-card" onClick={onClick} title={`Explore ${brand.name}`}>
@@ -868,7 +936,7 @@ export function App() {
             onClick={() => navigate("wishlist")}
           >
             <div className="wishlist-icon-wrapper">
-              <span className="wish-heart-icon">🤍</span>
+              <WishlistClipboardIcon width={22} height={26} color="#0f172a" />
               {wishlist.length > 0 && <span className="wish-count-badge">{wishlist.length}</span>}
             </div>
           </button>
