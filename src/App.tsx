@@ -740,48 +740,72 @@ export function App() {
       {toast && <div className="toast">{toast}</div>}
 
       {/* HEADER NAVBAR */}
-      <header className="navbar">
+      {/* HEADER NAVBAR */}
+      <header className="navbar header-navbar-modern">
         <button
           className="logo kar-header-logo"
           onClick={() => navigate(userRole === "admin" ? "admin" : "home")}
           aria-label="Kandakatla Arjun Rao Glass Mart"
         >
-          <KarOfficialLogo height={54} />
+          <KarOfficialLogo height={52} />
         </button>
 
         {userRole !== "admin" && (
-          <button className="delivery-location" onClick={() => setShowLocation(true)}>
-            <span className="loc-icon">📍</span>
-            <span>
-              <small>Deliver to</small>
+          <button className="navbar-location-btn" onClick={() => setShowLocation(true)}>
+            <div className="loc-pin-box">
+              <span className="loc-pin-icon">📍</span>
+            </div>
+            <div className="loc-text-col">
+              <small>Deliver to ▾</small>
               <strong>{selectedLocation}</strong>
-            </span>
+            </div>
           </button>
         )}
 
         {userRole !== "admin" && (
-          <div className="search-container">
-            <input
-              value={searchQuery}
-              onChange={e => setSearchQuery(e.target.value)}
-              onFocus={() => setSearchFocused(true)}
-              onBlur={() => setTimeout(() => setSearchFocused(false), 200)}
-              onKeyDown={e => {
-                if (e.key === "Enter") {
-                  e.preventDefault();
+          <div className="navbar-search-pill">
+            <div className="search-category-select-wrap">
+              <select
+                value={selectedCategory}
+                onChange={e => {
+                  setSelectedCategory(e.target.value);
                   navigate("products");
-                }
-              }}
-              placeholder="Search hinges, handles, aldrops, channels..."
-              className="search-input"
-              autoComplete="off"
-            />
+                }}
+                className="search-category-dropdown"
+              >
+                <option value="All">All Hardware ▾</option>
+                {CORE_CATEGORIES.map(cat => (
+                  <option key={cat.id} value={cat.id}>{cat.name}</option>
+                ))}
+              </select>
+            </div>
+
+            <div className="search-input-flex">
+              <span className="search-magnifier-icon">🔍</span>
+              <input
+                value={searchQuery}
+                onChange={e => setSearchQuery(e.target.value)}
+                onFocus={() => setSearchFocused(true)}
+                onBlur={() => setTimeout(() => setSearchFocused(false), 200)}
+                onKeyDown={e => {
+                  if (e.key === "Enter") {
+                    e.preventDefault();
+                    navigate("products");
+                  }
+                }}
+                placeholder="Search hinges, handles, aldrops..."
+                className="search-pill-input"
+                autoComplete="off"
+              />
+              <span className="search-shortcut-badge">⌘K</span>
+            </div>
+
             <button
-              className="search-button"
+              className="search-submit-red-btn"
               type="button"
               onClick={() => navigate("products")}
             >
-              ⌕
+              Search
             </button>
 
             {/* AUTOCOMPLETE POPUP */}
@@ -814,15 +838,18 @@ export function App() {
           )}
 
           <button
-            className="header-nav-link"
+            className="navbar-account-btn"
             onClick={() => (user ? navigate("account") : navigate("login"))}
           >
-            <small>{user ? `Hello, ${user.user_metadata?.name || "User"}` : "Welcome"}</small>
-            <strong>{user ? "My Account" : "Sign In / Register"}</strong>
+            <div className="account-avatar-circle">👤</div>
+            <div className="account-text-col">
+              <small>{user ? `Hello, ${user.user_metadata?.name || "User"}` : "Welcome"}</small>
+              <strong>{user ? "My Account ▾" : "Sign In ▾"}</strong>
+            </div>
           </button>
 
           <button
-            className="header-nav-link"
+            className="navbar-orders-btn"
             onClick={() => {
               if (!user) navigate("login");
               else {
@@ -836,19 +863,26 @@ export function App() {
           </button>
 
           <button
-            className="wishlist-btn"
+            className="navbar-wishlist-btn"
             title="Wishlist"
             onClick={() => navigate("wishlist")}
           >
-            <span className="wish-icon">🤍</span>
-            {wishlist.length > 0 && <span className="badge">{wishlist.length}</span>}
+            <div className="wishlist-icon-wrapper">
+              <span className="wish-heart-icon">🤍</span>
+              {wishlist.length > 0 && <span className="wish-count-badge">{wishlist.length}</span>}
+            </div>
           </button>
 
           {userRole !== "admin" && (
-            <button className="cart-btn" onClick={() => navigate("cart")}>
-              <span className="cart-icon">🛒</span>
-              <strong>Cart</strong>
-              {cartCount > 0 && <b className="cart-count">{cartCount}</b>}
+            <button className="navbar-cart-pill" onClick={() => navigate("cart")}>
+              <div className="cart-icon-wrapper">
+                <span className="cart-trolley-icon">🛒</span>
+                {cartCount > 0 && <span className="cart-count-badge">{cartCount}</span>}
+              </div>
+              <div className="cart-text-col">
+                <span className="cart-label-text">CART</span>
+                <strong className="cart-price-text">{money(cartTotal)}</strong>
+              </div>
             </button>
           )}
 
